@@ -30,7 +30,9 @@
     overflow-x: hidden;
   }
 
-  /* ── NAV ── */
+  /* ══════════════════════════════
+     NAV
+  ══════════════════════════════ */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -51,10 +53,7 @@
     text-decoration: none;
   }
 
-  .logo-mark {
-    width: 38px;
-    height: 38px;
-  }
+  .logo-mark { width: 38px; height: 38px; }
 
   .logo-text {
     font-family: 'Noto Serif TC', serif;
@@ -82,9 +81,7 @@
 
   .nav-links a:hover { opacity: 1; }
 
-  .nav-dropdown {
-    position: relative;
-  }
+  .nav-dropdown { position: relative; }
 
   .nav-dropdown > a::after {
     content: ' ▾';
@@ -102,7 +99,8 @@
     padding: 20px 28px;
     min-width: 280px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-    margin-top: 12px;
+    margin-top: 0;
+    padding-top: 12px;
   }
 
   .nav-dropdown:hover .dropdown-menu { display: flex; gap: 32px; }
@@ -160,7 +158,131 @@
     opacity: 0.85;
   }
 
-  /* ── HERO ── */
+  /* 漢堡按鈕 — 手機才顯示 */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px; height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 200;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px; height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s;
+    transform-origin: center;
+  }
+
+  /* 漢堡動畫：變 X */
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* 手機全螢幕選單 */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 64px; left: 0; right: 0; bottom: 0;
+    background: var(--salmon-bg);
+    z-index: 99;
+    overflow-y: auto;
+    padding: 32px 32px 48px;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu-item {
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .mobile-menu-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    font-size: 17px;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 1px;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .mobile-menu-link .arrow {
+    font-size: 12px;
+    transition: transform 0.2s;
+    opacity: 0.6;
+  }
+
+  .mobile-menu-item.open .mobile-menu-link .arrow {
+    transform: rotate(180deg);
+  }
+
+  .mobile-submenu {
+    display: none;
+    padding: 4px 0 16px 16px;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .mobile-menu-item.open .mobile-submenu { display: flex; }
+
+  .mobile-submenu-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 2px;
+    margin: 12px 0 6px;
+  }
+
+  .mobile-submenu a {
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    padding: 8px 0;
+    letter-spacing: 0.5px;
+  }
+
+  .mobile-cta {
+    margin-top: 32px;
+    display: block;
+    text-align: center;
+    background: white;
+    color: var(--salmon) !important;
+    padding: 14px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+  }
+
+  .hero-sub-tagline {
+    font-size: clamp(14px, 1.6vw, 18px);
+    color: rgba(255,255,255,0.8);
+    line-height: 2;
+    letter-spacing: 1px;
+    margin-top: 16px;
+  }
+
+  @media (max-width: 768px) {
+    .hero-sub-tagline { font-size: 13px; letter-spacing: 0.5px; }
+  }
+  /* ══════════════════════════════
+     HERO
+  ══════════════════════════════ */
   .hero {
     padding-top: 64px;
     min-height: 520px;
@@ -183,7 +305,9 @@
     margin-bottom: 60px;
   }
 
-  /* ── SERVICE CARDS ── */
+  /* ══════════════════════════════
+     SERVICE CARDS
+  ══════════════════════════════ */
   .services {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -200,15 +324,6 @@
   }
 
   .service-card:hover { transform: translateY(-4px); }
-
-  .service-card-img {
-    width: 100%;
-    height: 260px;
-    object-fit: cover;
-    display: block;
-    background: var(--cream-dark);
-    position: relative;
-  }
 
   .service-card-img-placeholder {
     width: 100%;
@@ -266,7 +381,9 @@
     color: white;
   }
 
-  /* ── QUICK LINKS BAR ── */
+  /* ══════════════════════════════
+     QUICK LINKS BAR
+  ══════════════════════════════ */
   .quicklinks {
     background: var(--salmon-bg);
     display: flex;
@@ -286,6 +403,7 @@
     border-right: 1px solid rgba(255,255,255,0.25);
     cursor: pointer;
     transition: opacity 0.2s;
+    text-decoration: none;
   }
 
   .quicklink-item:last-child { border-right: none; }
@@ -313,7 +431,9 @@
     margin-bottom: 4px;
   }
 
-  /* ── BRAND SECTION ── */
+  /* ══════════════════════════════
+     BRAND SECTION
+  ══════════════════════════════ */
   .brand-section {
     padding: 60px 48px;
     text-align: center;
@@ -399,7 +519,9 @@
     margin: 0 auto;
   }
 
-  /* ── PROCESS SECTION ── */
+  /* ══════════════════════════════
+     PROCESS SECTION
+  ══════════════════════════════ */
   .process-section {
     background: var(--cream);
     margin: 0 48px 60px;
@@ -462,7 +584,9 @@
     line-height: 1.8;
   }
 
-  /* ── ABOUT SECTION ── */
+  /* ══════════════════════════════
+     ABOUT SECTION
+  ══════════════════════════════ */
   .about-section {
     padding: 0 48px 60px;
     display: grid;
@@ -510,7 +634,9 @@
     margin-bottom: 32px;
   }
 
-  /* ── FOOTER ── */
+  /* ══════════════════════════════
+     FOOTER
+  ══════════════════════════════ */
   footer {
     background: var(--navy);
     color: white;
@@ -571,8 +697,186 @@
     letter-spacing: 0.5px;
   }
 
-  /* placeholder images using svg patterns */
-  .img-ph { background: var(--cream-dark); }
+  /* ══════════════════════════════
+     RWD — TABLET (≤1024px)
+  ══════════════════════════════ */
+  @media (max-width: 1024px) {
+    nav { padding: 0 32px; }
+
+    .nav-links { gap: 24px; }
+
+    .services {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 0 32px 48px;
+    }
+
+    /* 第三張卡片佔滿整行 */
+    .service-card:last-child {
+      grid-column: 1 / -1;
+      max-width: 480px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .quicklinks { padding: 24px 24px; }
+    .quicklink-item { padding: 0 20px; }
+    .quicklink-en { font-size: 13px; }
+    .quicklink-zh { font-size: 11px; }
+
+    .brand-section { padding: 48px 32px; }
+    .brands-grid-bottom { max-width: 80%; }
+
+    .process-section { margin: 0 32px 48px; padding: 36px; }
+    .process-steps { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .process-steps::before { display: none; }
+
+    .about-section { padding: 0 32px 48px; gap: 32px; }
+    .about-img-placeholder { height: 300px; }
+
+    footer { padding: 48px 32px; gap: 32px; }
+  }
+
+  /* ══════════════════════════════
+     RWD — MOBILE (≤768px)
+  ══════════════════════════════ */
+  @media (max-width: 768px) {
+    /* NAV：隱藏桌機選單，顯示漢堡 */
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-icons { display: none; }
+    .hamburger { display: flex; }
+
+    /* HERO */
+    .hero {
+      min-height: 360px;
+      padding: 80px 24px 48px;
+    }
+
+    .hero-tagline {
+      font-size: clamp(22px, 6vw, 30px);
+      letter-spacing: 2px;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    /* SERVICE CARDS */
+    .services {
+      grid-template-columns: 1fr;
+      padding: 0 20px 40px;
+      gap: 16px;
+    }
+
+    .service-card:last-child {
+      grid-column: auto;
+      max-width: 100%;
+    }
+
+    .service-card-img-placeholder { height: 200px; }
+
+    /* QUICK LINKS：改成 2×3 grid */
+    .quicklinks {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 20px 16px;
+      gap: 0;
+    }
+
+    .quicklink-item {
+      padding: 12px 8px;
+      border-right: none;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .quicklink-item:nth-child(1),
+    .quicklink-item:nth-child(2),
+    .quicklink-item:nth-child(3) {
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .quicklink-item:nth-child(4),
+    .quicklink-item:nth-child(5) {
+      border-bottom: none;
+    }
+
+    .quicklink-en { font-size: 12px; letter-spacing: 1px; }
+    .quicklink-zh { font-size: 11px; }
+    .quicklink-icon { width: 22px; height: 22px; }
+
+    /* BRAND SECTION */
+    .brand-section { padding: 40px 20px; }
+
+    .brands-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    /* 第三個品牌卡片佔滿 */
+    .brands-grid .brand-card:last-child {
+      grid-column: 1 / -1;
+      aspect-ratio: 2 / 1;
+    }
+
+    .brands-grid-bottom {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 100%;
+      gap: 12px;
+    }
+
+    .section-title-text { font-size: 15px; letter-spacing: 2px; }
+    .section-title-line { max-width: 60px; }
+
+    /* PROCESS SECTION */
+    .process-section {
+      margin: 0 16px 40px;
+      padding: 28px 20px;
+      border-radius: 16px;
+    }
+
+    .process-steps {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .process-step {
+      flex-direction: row;
+      text-align: left;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(45,58,74,0.08);
+      align-items: flex-start;
+    }
+
+    .process-step:last-child { border-bottom: none; }
+
+    .step-num {
+      width: 44px; height: 44px;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .step-title { margin-bottom: 4px; }
+    .step-desc { text-align: left; }
+
+    /* ABOUT SECTION */
+    .about-section {
+      grid-template-columns: 1fr;
+      padding: 0 20px 40px;
+      gap: 24px;
+    }
+
+    .about-img-placeholder { height: 240px; }
+
+    .about-title { font-size: 22px; }
+
+    /* FOOTER */
+    footer {
+      grid-template-columns: 1fr;
+      padding: 40px 20px;
+      gap: 32px;
+    }
+
+    .footer-bottom { padding: 16px 20px; }
+  }
 </style>
 </head>
 <body>
@@ -580,7 +884,13 @@
 <!-- NAV -->
 <nav>
   <a class="logo" href="#">
-    <img src="images/LMlogo.png" alt="良美眼鏡" style="height:38px;">
+    <svg class="logo-mark" viewBox="0 0 38 38" fill="none">
+      <path d="M6 28 Q6 10 19 8 Q32 10 32 28" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M10 28 Q10 16 19 14 Q28 16 28 28" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <circle cx="5" cy="28" r="3" fill="white"/>
+      <circle cx="33" cy="28" r="3" fill="white"/>
+    </svg>
+    <span class="logo-text">良美眼鏡</span>
   </a>
 
   <ul class="nav-links">
@@ -620,21 +930,64 @@
     <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
     <svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
   </div>
+
+  <!-- 漢堡按鈕 -->
+  <button class="hamburger" id="hamburger" aria-label="開啟選單">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
+
+<!-- 手機全螢幕選單 -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-item">
+    <a class="mobile-menu-link" href="#">關於我們</a>
+  </div>
+  <div class="mobile-menu-item" id="mob-service">
+    <button class="mobile-menu-link">
+      專業服務 <span class="arrow">▾</span>
+    </button>
+    <div class="mobile-submenu">
+      <div class="mobile-submenu-label">成人配鏡</div>
+      <a href="#">顧問式驗光</a>
+      <a href="#">老花多焦點</a>
+      <a href="#">高度近視專區</a>
+      <div class="mobile-submenu-label">兒童配鏡</div>
+      <a href="#">兒童近視管理</a>
+      <a href="#">Kids 視力健康紀錄</a>
+    </div>
+  </div>
+  <div class="mobile-menu-item" id="mob-brand">
+    <button class="mobile-menu-link">
+      眼鏡品牌 <span class="arrow">▾</span>
+    </button>
+    <div class="mobile-submenu">
+      <a href="#">LIPO</a>
+      <a href="#">eyes-cream</a>
+      <a href="#">spec espace</a>
+      <a href="#">MASUNAGA</a>
+    </div>
+  </div>
+  <div class="mobile-menu-item">
+    <a class="mobile-menu-link" href="#">專屬配鏡流程</a>
+  </div>
+  <a class="mobile-cta" href="#">立即預約</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
-  <p class="hero-tagline">
-    從了解您的，每日用眼習慣<br>
-    到精準驗配一隻好眼鏡。
-  </p>
+  <p class="hero-tagline">讓眼鏡真正符合您的生活。</p>
+  <p class="hero-sub-tagline">閱讀、電腦工作、開車、運動，<br>不同的用眼方式，你需要不同的配鏡考量。</p>
 </section>
 
 <!-- SERVICE CARDS -->
 <section class="services">
 
   <div class="service-card">
-    <img src="images/多焦點.jpg" alt="老花多焦配鏡" style="width:100%; height:260px; object-fit:cover; display:block;">
+    <div class="service-card-img-placeholder" style="background: #DDD5C5;">
+      <img src="images/多焦點.jpg" alt="老花多焦配鏡" style="width:100%;height:100%;object-fit:cover;">
+    </div>
     <div class="service-card-body">
       <h3 class="service-card-title">老花多焦配鏡</h3>
       <p class="service-card-desc">
@@ -648,7 +1001,9 @@
   </div>
 
   <div class="service-card">
-    <img src="images/兒童近視.jpg" alt="兒童近視管理" style="width:100%; height:260px; object-fit:cover; display:block;">
+    <div class="service-card-img-placeholder" style="background: #CDD4D0;">
+      <img src="images/兒童近視.jpg" alt="兒童近視管理" style="width:100%;height:100%;object-fit:cover;">
+    </div>
     <div class="service-card-body">
       <h3 class="service-card-title">兒童近視管理</h3>
       <p class="service-card-desc">
@@ -657,18 +1012,13 @@
         <em>每月 LINE 通知</em>追蹤檢查<br>
         把握孩子在 6〜15 歲的關鍵期。
       </p>
-      <a href="children-myopia.html" class="card-btn">了解更多</a>
+      <a href="#" class="card-btn">了解更多</a>
     </div>
   </div>
 
   <div class="service-card">
     <div class="service-card-img-placeholder" style="background: #D5CDBF;">
-      <svg width="80" height="80" viewBox="0 0 80 80" fill="none" opacity="0.3">
-        <ellipse cx="40" cy="40" rx="28" ry="16" stroke="#2D3A4A" stroke-width="2"/>
-        <path d="M12 40 Q12 60 40 60 Q68 60 68 40" stroke="#2D3A4A" stroke-width="2" fill="none"/>
-        <line x1="10" y1="40" x2="14" y2="50" stroke="#2D3A4A" stroke-width="2" stroke-linecap="round"/>
-        <line x1="70" y1="40" x2="66" y2="50" stroke="#2D3A4A" stroke-width="2" stroke-linecap="round"/>
-      </svg>
+      <img src="images/高度近視.jpg" alt="高度近視眼鏡" style="width:100%;height:100%;object-fit:cover;">
     </div>
     <div class="service-card-body">
       <h3 class="service-card-title">高度近視眼鏡</h3>
@@ -686,31 +1036,31 @@
 
 <!-- QUICK LINKS -->
 <div class="quicklinks">
-  <div class="quicklink-item">
+  <a class="quicklink-item" href="#">
     <svg class="quicklink-icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
     <span class="quicklink-en">NEWS</span>
     <span class="quicklink-zh">最新資訊</span>
-  </div>
-  <div class="quicklink-item">
+  </a>
+  <a class="quicklink-item" href="#">
     <svg class="quicklink-icon" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
     <span class="quicklink-en">Health</span>
     <span class="quicklink-zh">眼健康資訊</span>
-  </div>
-  <div class="quicklink-item">
+  </a>
+  <a class="quicklink-item" href="#">
     <svg class="quicklink-icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
     <span class="quicklink-en">Story</span>
     <span class="quicklink-zh">配鏡故事分享</span>
-  </div>
-  <div class="quicklink-item">
+  </a>
+  <a class="quicklink-item" href="#">
     <svg class="quicklink-icon" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
     <span class="quicklink-en">Facebook</span>
     <span class="quicklink-zh">最新資訊社團</span>
-  </div>
-  <div class="quicklink-item">
+  </a>
+  <a class="quicklink-item" href="#">
     <svg class="quicklink-icon" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
     <span class="quicklink-en">Instagram</span>
     <span class="quicklink-zh">眼資訊分享</span>
-  </div>
+  </a>
 </div>
 
 <!-- BRAND SECTION -->
@@ -723,15 +1073,15 @@
 
   <div class="brands-grid">
     <div class="brand-card">
-      <div class="brand-img-placeholder">眼鏡是你最好的工具</div>
+      <img src="images/999.9.png" alt="999.9" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
       <span class="brand-card-label">眼鏡是你最好的工具</span>
     </div>
     <div class="brand-card">
-      <div class="brand-img-placeholder">spec espace</div>
+      <img src="images/spec.jpg" alt="spec espace" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
       <span class="brand-card-label">無焊接・無螺絲・無腳鎖</span>
     </div>
     <div class="brand-card">
-      <div class="brand-img-placeholder">MASUNAGA</div>
+      <img src="images/masunaga.jpg" alt="MASUNAGA" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
       <span class="brand-card-label">日本皇家御用手工眼鏡</span>
     </div>
   </div>
@@ -759,28 +1109,38 @@
   <div class="process-steps">
     <div class="process-step">
       <div class="step-num">1</div>
-      <div class="step-title">線上預約</div>
-      <div class="step-desc">填寫基本資料<br>及用眼需求</div>
+      <div>
+        <div class="step-title">線上預約</div>
+        <div class="step-desc">填寫基本資料<br>及用眼需求</div>
+      </div>
     </div>
     <div class="process-step">
       <div class="step-num">2</div>
-      <div class="step-title">生活問診</div>
-      <div class="step-desc">了解您的<br>用眼習慣</div>
+      <div>
+        <div class="step-title">生活問診</div>
+        <div class="step-desc">了解您的<br>用眼習慣</div>
+      </div>
     </div>
     <div class="process-step">
       <div class="step-num">3</div>
-      <div class="step-title">精準驗光</div>
-      <div class="step-desc">完整視功能<br>評估</div>
+      <div>
+        <div class="step-title">精準驗光</div>
+        <div class="step-desc">完整視功能<br>評估</div>
+      </div>
     </div>
     <div class="process-step">
       <div class="step-num">4</div>
-      <div class="step-title">顧問式選鏡</div>
-      <div class="step-desc">依臉型·度數<br>推薦鏡框</div>
+      <div>
+        <div class="step-title">顧問式選鏡</div>
+        <div class="step-desc">依臉型·度數<br>推薦鏡框</div>
+      </div>
     </div>
     <div class="process-step">
       <div class="step-num">5</div>
-      <div class="step-title">追蹤回診</div>
-      <div class="step-desc">定期 LINE<br>提醒回診</div>
+      <div>
+        <div class="step-title">追蹤回診</div>
+        <div class="step-desc">定期 LINE<br>提醒回診</div>
+      </div>
     </div>
   </div>
 </section>
@@ -809,7 +1169,13 @@
 <footer>
   <div class="footer-brand">
     <div class="logo">
-      <img src="images/LMlogo.png" alt="良美眼鏡" style="height:32px;">
+      <svg width="30" height="30" viewBox="0 0 38 38" fill="none">
+        <path d="M6 28 Q6 10 19 8 Q32 10 32 28" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M10 28 Q10 16 19 14 Q28 16 28 28" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <circle cx="5" cy="28" r="3" fill="white"/>
+        <circle cx="33" cy="28" r="3" fill="white"/>
+      </svg>
+      <span class="logo-text">良美眼鏡</span>
     </div>
     <p class="footer-tagline">
       台南永康・兒童近視管理・顧問式驗光<br>
@@ -829,18 +1195,47 @@
   <div>
     <p class="footer-heading">CONTACT</p>
     <div class="footer-info">
-      台南市永康區<br>
+      台南市永康區永大路二段189號<br>
       ___________________________<br><br>
-      週一〜週六　10:00 – 20:00<br>
-      週日　10:00 – 18:00<br><br>
-      📍 Google Maps<br>
-      📞 預約電話
+      週一〜週六　10:00 – 21:00<br>
+      週日　12:00 – 19:00<br><br>
+      📍 <a href="https://share.google/OFnrIagYW2B9vKdJe" target="_blank" style="color:rgba(255,255,255,0.6); text-decoration:underline;">Google Maps</a><br>
+      📞 <a href="tel:0627272867" style="color:rgba(255,255,255,0.6); text-decoration:underline;">06-2727867</a>
     </div>
   </div>
 </footer>
 <div class="footer-bottom">
-  © 1993 良美眼鏡 Liangmei Eyewear · 台南永康驗光所
+  © 創立於1993年 · 台南永康良美眼鏡 Liangmei Eyewear
 </div>
 
+<script>
+  // 漢堡選單
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+
+  // 手機子選單展開
+  ['mob-service', 'mob-brand'].forEach(id => {
+    const item = document.getElementById(id);
+    if (!item) return;
+    item.querySelector('button').addEventListener('click', () => {
+      item.classList.toggle('open');
+    });
+  });
+
+  // 點選連結後關閉選單
+  document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+</script>
 </body>
 </html>
