@@ -11,7 +11,7 @@
     --salmon: #E8836A;
     --salmon-light: #F0A08A;
     --salmon-pale: #F5C4B3;
-    --salmon-bg: #EE8F78;
+    --salmon-bg: #F7F3EE;
     --cream: #F5EFE0;
     --cream-dark: #EDE5D0;
     --navy: #2D3A4A;
@@ -23,6 +23,31 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
+  /* ── VIGNETTE TEXTURE ── */
+  .vignette {
+    position: relative;
+    overflow: hidden;
+  }
+  .vignette::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(
+      ellipse at 50% 45%,
+      rgba(255,255,255,0.07) 0%,
+      rgba(238,143,120,0) 45%,
+      rgba(180,85,60,0.18) 100%
+    );
+  }
+  /* nav 內部元素保持在 vignette 上方 */
+  nav.vignette .logo,
+  nav.vignette .nav-links,
+  nav.vignette .nav-icons,
+  nav.vignette .hamburger { position: relative; z-index: 101; }
+  .hero.vignette > * { position: relative; z-index: 1; }
+
   body {
     font-family: 'Noto Sans TC', sans-serif;
     background: var(--salmon-bg);
@@ -30,6 +55,20 @@
     overflow-x: hidden;
   }
 
+  /* 亞麻布紋 SVG pattern */
+  .linen {
+    position: relative;
+  }
+  .linen::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+  }
+  .linen > * { position: relative; z-index: 1; }
   /* ══════════════════════════════
      NAV
   ══════════════════════════════ */
@@ -38,12 +77,30 @@
     top: 0; left: 0; right: 0;
     z-index: 100;
     background: var(--salmon-bg);
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    justify-content: space-between;
     padding: 0 48px;
     height: 64px;
-    border-bottom: 1px solid rgba(255,255,255,0.15);
+    border-bottom: 1px solid rgba(45,58,74,0.1);
+  }
+
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .nav-center {
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px;
   }
 
   .logo {
@@ -59,20 +116,18 @@
     font-family: 'Noto Serif TC', serif;
     font-size: 18px;
     font-weight: 500;
-    color: var(--white);
+    color: var(--navy);
     letter-spacing: 2px;
   }
 
   .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 40px;
+    display: none;
     list-style: none;
   }
 
   .nav-links a {
     font-size: 14px;
-    color: var(--white);
+    color: var(--navy);
     text-decoration: none;
     letter-spacing: 1px;
     opacity: 0.9;
@@ -103,7 +158,7 @@
     padding-top: 12px;
   }
 
-  .nav-dropdown:hover .dropdown-menu { display: flex; gap: 32px; }
+  /* dropdown hover 停用，改用 mobile-menu */
 
   .dropdown-group { display: flex; flex-direction: column; gap: 8px; }
 
@@ -127,8 +182,8 @@
 
   .nav-cta {
     background: transparent;
-    border: 1.5px solid var(--white);
-    color: var(--white) !important;
+    border: 1.5px solid var(--navy);
+    color: var(--navy) !important;
     padding: 7px 20px;
     border-radius: 24px;
     font-size: 14px !important;
@@ -139,8 +194,8 @@
   }
 
   .nav-cta:hover {
-    background: var(--white) !important;
-    color: var(--salmon) !important;
+    background: var(--navy) !important;
+    color: var(--white) !important;
     opacity: 1 !important;
   }
 
@@ -152,15 +207,15 @@
 
   .nav-icons svg {
     width: 20px; height: 20px;
-    stroke: white;
+    stroke: var(--navy);
     fill: none;
     cursor: pointer;
-    opacity: 0.85;
+    opacity: 0.7;
   }
 
-  /* 漢堡按鈕 — 手機才顯示 */
+  /* 漢堡按鈕 — 所有裝置顯示 */
   .hamburger {
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 5px;
@@ -175,7 +230,7 @@
   .hamburger span {
     display: block;
     width: 22px; height: 2px;
-    background: white;
+    background: var(--navy);
     border-radius: 2px;
     transition: all 0.3s;
     transform-origin: center;
@@ -202,7 +257,7 @@
   .mobile-menu.open { display: flex; }
 
   .mobile-menu-item {
-    border-bottom: 1px solid rgba(255,255,255,0.15);
+    border-bottom: 1px solid rgba(45,58,74,0.1);
   }
 
   .mobile-menu-link {
@@ -271,7 +326,7 @@
 
   .hero-sub-tagline {
     font-size: clamp(14px, 1.6vw, 18px);
-    color: rgba(255,255,255,0.8);
+    color: var(--navy-mid);
     line-height: 2;
     letter-spacing: 1px;
     margin-top: 16px;
@@ -284,25 +339,69 @@
      HERO
   ══════════════════════════════ */
   .hero {
-    padding-top: 64px;
-    min-height: 520px;
+    position: relative;
+    width: 100%;
+    height: 100svh;
+    min-height: 560px;
+    overflow: hidden;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding-bottom: 0;
+    align-items: flex-start;
+    padding-top: 64px;
+  }
+
+  /* 影片／圖片背景層 */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: var(--cream-dark);
+    /* 之後換影片時移除 background，改用 <video> */
+  }
+
+  /* 亞麻紋理疊層 */
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.055'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+  }
+
+  /* 底部漸層：讓文字區域更清晰 */
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(245,239,224,0.6) 0%,
+      rgba(245,239,224,0.2) 45%,
+      transparent 100%
+    );
+  }
+
+  /* 文字內容 */
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 72px 64px 0;
+    max-width: 760px;
+  }
+
+  .hero-sub-tagline {
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--navy-mid);
+    font-weight: 400;
+    margin-bottom: 20px;
+    line-height: 1.8;
   }
 
   .hero-tagline {
     font-family: 'Noto Serif TC', serif;
-    font-size: clamp(28px, 4vw, 46px);
+    font-size: clamp(36px, 5.5vw, 68px);
     font-weight: 300;
-    color: var(--white);
-    line-height: 1.6;
+    color: var(--navy);
+    line-height: 1.35;
     letter-spacing: 4px;
-    margin-top: 60px;
-    margin-bottom: 60px;
   }
 
   /* ══════════════════════════════
@@ -740,16 +839,18 @@
      RWD — MOBILE (≤768px)
   ══════════════════════════════ */
   @media (max-width: 768px) {
-    /* NAV：隱藏桌機選單，顯示漢堡 */
-    nav { padding: 0 20px; }
-    .nav-links { display: none; }
+    /* NAV */
+    nav {
+      padding: 0 20px;
+      grid-template-columns: 1fr auto 1fr;
+    }
     .nav-icons { display: none; }
-    .hamburger { display: flex; }
+    .nav-right { display: none; }
 
     /* HERO */
     .hero {
-      min-height: 360px;
-      padding: 80px 24px 48px;
+      min-height: 80svh;
+      align-items: flex-start;
     }
 
     .hero-tagline {
@@ -784,13 +885,13 @@
     .quicklink-item {
       padding: 12px 8px;
       border-right: none;
-      border-bottom: 1px solid rgba(255,255,255,0.15);
+      border-bottom: 1px solid rgba(45,58,74,0.1);
     }
 
     .quicklink-item:nth-child(1),
     .quicklink-item:nth-child(2),
     .quicklink-item:nth-child(3) {
-      border-bottom: 1px solid rgba(255,255,255,0.15);
+      border-bottom: 1px solid rgba(45,58,74,0.1);
     }
 
     .quicklink-item:nth-child(4),
@@ -879,64 +980,69 @@
   }
 </style>
 </head>
-<body>
+<body class="linen">
 
 <!-- NAV -->
 <nav>
-  <a class="logo" href="#">
-    <svg class="logo-mark" viewBox="0 0 38 38" fill="none">
-      <path d="M6 28 Q6 10 19 8 Q32 10 32 28" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-      <path d="M10 28 Q10 16 19 14 Q28 16 28 28" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-      <circle cx="5" cy="28" r="3" fill="white"/>
-      <circle cx="33" cy="28" r="3" fill="white"/>
-    </svg>
-    <span class="logo-text">良美眼鏡</span>
-  </a>
-
-  <ul class="nav-links">
-    <li><a href="#">關於我們</a></li>
-    <li class="nav-dropdown">
-      <a href="#">專業服務</a>
-      <div class="dropdown-menu">
-        <div class="dropdown-group">
-          <div class="dropdown-label">成人配鏡</div>
-          <a href="#">顧問式驗光</a>
-          <a href="#">老花多焦點</a>
-          <a href="#">高度近視專區</a>
+  <!-- 左：選單連結 + 漢堡 -->
+  <div class="nav-left">
+    <ul class="nav-links">
+      <li><a href="#">關於我們</a></li>
+      <li class="nav-dropdown">
+        <a href="#">專業服務</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-group">
+            <div class="dropdown-label">成人配鏡</div>
+            <a href="#">顧問式驗光</a>
+            <a href="#">老花多焦點</a>
+            <a href="#">高度近視專區</a>
+          </div>
+          <div class="dropdown-group">
+            <div class="dropdown-label">兒童配鏡</div>
+            <a href="#">兒童近視管理</a>
+            <a href="#">Kids 視力健康紀錄</a>
+          </div>
         </div>
-        <div class="dropdown-group">
-          <div class="dropdown-label">兒童配鏡</div>
-          <a href="#">兒童近視管理</a>
-          <a href="#">Kids 視力健康紀錄</a>
+      </li>
+      <li class="nav-dropdown">
+        <a href="#">眼鏡品牌</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-group">
+            <a href="#">LIPO</a>
+            <a href="#">eyes-cream</a>
+            <a href="#">spec espace</a>
+            <a href="#">MASUNAGA</a>
+          </div>
         </div>
-      </div>
-    </li>
-    <li class="nav-dropdown">
-      <a href="#">眼鏡品牌</a>
-      <div class="dropdown-menu">
-        <div class="dropdown-group">
-          <a href="#">LIPO</a>
-          <a href="#">eyes-cream</a>
-          <a href="#">spec espace</a>
-          <a href="#">MASUNAGA</a>
-        </div>
-      </div>
-    </li>
-    <li><a href="#">專屬配鏡流程</a></li>
-    <li><a class="nav-cta" href="#">立即預約</a></li>
-  </ul>
-
-  <div class="nav-icons">
-    <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-    <svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </li>
+      <li><a href="#">專屬配鏡流程</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="開啟選單">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 
-  <!-- 漢堡按鈕 -->
-  <button class="hamburger" id="hamburger" aria-label="開啟選單">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
+  <!-- 中：Logo -->
+  <div class="nav-center">
+    <a class="logo" href="#">
+      <svg class="logo-mark" viewBox="0 0 38 38" fill="none">
+        <path d="M6 28 Q6 10 19 8 Q32 10 32 28" stroke="var(--navy)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M10 28 Q10 16 19 14 Q28 16 28 28" stroke="var(--navy)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <circle cx="5" cy="28" r="3" fill="var(--navy)"/>
+        <circle cx="33" cy="28" r="3" fill="var(--navy)"/>
+      </svg>
+      <span class="logo-text">良美眼鏡</span>
+    </a>
+  </div>
+
+  <!-- 右：Icon + CTA -->
+  <div class="nav-right">
+    <div class="nav-icons">
+      <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    </div>
+    <a class="nav-cta" href="#">立即預約</a>
+  </div>
 </nav>
 
 <!-- 手機全螢幕選單 -->
@@ -977,8 +1083,14 @@
 
 <!-- HERO -->
 <section class="hero">
-  <p class="hero-tagline">讓眼鏡真正符合您的生活。</p>
-  <p class="hero-sub-tagline">閱讀、電腦工作、開車、運動，<br>不同的用眼方式，你需要不同的配鏡考量。</p>
+  <!-- 背景層：換影片時在此加入 <video autoplay muted loop playsinline><source src="hero.mp4" type="video/mp4"></video> -->
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <p class="hero-sub-tagline">閱讀、電腦工作、開車、運動，不同的用眼方式，需要不同的配鏡考量。</p>
+    <h1 class="hero-tagline">讓眼鏡真正符合您的生活。</h1>
+  </div>
 </section>
 
 <!-- SERVICE CARDS -->
@@ -1035,7 +1147,7 @@
 </section>
 
 <!-- QUICK LINKS -->
-<div class="quicklinks">
+<div class="quicklinks linen">
   <a class="quicklink-item" href="#">
     <svg class="quicklink-icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
     <span class="quicklink-en">NEWS</span>
