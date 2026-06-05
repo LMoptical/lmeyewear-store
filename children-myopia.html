@@ -24,7 +24,9 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family:'Noto Sans TC',sans-serif; background:var(--white); color:var(--navy); overflow-x:hidden; }
 
-  /* NAV */
+  /* ══════════════════════════════
+     NAV
+  ══════════════════════════════ */
   nav {
     position:fixed; top:0; left:0; right:0; z-index:100;
     background:var(--salmon-bg);
@@ -39,7 +41,7 @@
   .nav-links a:hover { opacity:1; }
   .nav-dropdown { position:relative; }
   .nav-dropdown>a::after { content:' ▾'; font-size:10px; }
-  .dropdown-menu { display:none; position:absolute; top:100%; left:50%; transform:translateX(-50%); background:white; border-radius:12px; padding:20px 28px; min-width:280px; box-shadow:0 8px 32px rgba(0,0,0,.12); margin-top:12px; }
+  .dropdown-menu { display:none; position:absolute; top:100%; left:50%; transform:translateX(-50%); background:white; border-radius:12px; padding:20px 28px; min-width:280px; box-shadow:0 8px 32px rgba(0,0,0,.12); margin-top:0; padding-top:12px; }
   .nav-dropdown:hover .dropdown-menu { display:flex; gap:32px; }
   .dropdown-group { display:flex; flex-direction:column; gap:8px; }
   .dropdown-label { font-size:12px; color:var(--accent-red); letter-spacing:1px; font-weight:500; margin-bottom:4px; }
@@ -50,7 +52,52 @@
   .nav-icons { display:flex; gap:16px; align-items:center; }
   .nav-icons svg { width:20px; height:20px; stroke:white; fill:none; cursor:pointer; opacity:.85; }
 
-  /* HERO */
+  /* 漢堡按鈕 */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px; height: 32px;
+    background: none; border: none;
+    cursor: pointer; padding: 4px; z-index: 200;
+  }
+  .hamburger span {
+    display: block; width: 22px; height: 2px;
+    background: white; border-radius: 2px;
+    transition: all 0.3s; transform-origin: center;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* 手機全螢幕選單 */
+  .mobile-menu {
+    display: none; position: fixed;
+    top: 64px; left: 0; right: 0; bottom: 0;
+    background: var(--salmon-bg); z-index: 99;
+    overflow-y: auto; padding: 32px 32px 48px;
+    flex-direction: column; gap: 0;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu-item { border-bottom: 1px solid rgba(255,255,255,0.15); }
+  .mobile-menu-link {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 0; font-size: 17px; color: white; text-decoration: none;
+    letter-spacing: 1px; background: none; border: none; width: 100%;
+    text-align: left; cursor: pointer;
+  }
+  .mobile-menu-link .arrow { font-size: 12px; transition: transform 0.2s; opacity: 0.6; }
+  .mobile-menu-item.open .mobile-menu-link .arrow { transform: rotate(180deg); }
+  .mobile-submenu { display: none; padding: 4px 0 16px 16px; flex-direction: column; gap: 0; }
+  .mobile-menu-item.open .mobile-submenu { display: flex; }
+  .mobile-submenu-label { font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 2px; margin: 12px 0 6px; }
+  .mobile-submenu a { font-size: 15px; color: rgba(255,255,255,0.85); text-decoration: none; padding: 8px 0; letter-spacing: 0.5px; }
+  .mobile-cta { margin-top: 32px; display: block; text-align: center; background: white; color: var(--salmon)!important; padding: 14px; border-radius: 30px; font-size: 15px; font-weight: 500; letter-spacing: 1px; text-decoration: none; }
+
+  /* ══════════════════════════════
+     HERO
+  ══════════════════════════════ */
   .hero {
     padding-top:64px;
     background:var(--salmon-bg);
@@ -60,211 +107,95 @@
     align-items:center;
   }
   .hero-text { padding:64px 48px 64px 64px; }
-  .hero-label {
-    font-size:11px; letter-spacing:3px; color:rgba(255,255,255,0.7);
-    font-weight:400; margin-bottom:16px; text-transform:uppercase;
-  }
-  .hero-h1 {
-    font-family:'Noto Serif TC',serif;
-    font-size:clamp(26px,3.5vw,42px);
-    font-weight:300; color:white;
-    line-height:1.6; letter-spacing:4px;
-    margin-bottom:20px;
-  }
-  .hero-sub {
-    font-size:14px; color:rgba(255,255,255,0.8);
-    line-height:2.2; letter-spacing:0.5px;
-    margin-bottom:32px;
-  }
+  .hero-label { font-size:11px; letter-spacing:3px; color:rgba(255,255,255,0.7); font-weight:400; margin-bottom:16px; text-transform:uppercase; }
+  .hero-h1 { font-family:'Noto Serif TC',serif; font-size:clamp(26px,3.5vw,42px); font-weight:300; color:white; line-height:1.6; letter-spacing:4px; margin-bottom:20px; }
+  .hero-sub { font-size:14px; color:rgba(255,255,255,0.8); line-height:2.2; letter-spacing:0.5px; margin-bottom:32px; }
   .hero-sub strong { color:white; font-weight:500; }
-  .hero-cta {
-    display:inline-block;
-    background:white; color:var(--salmon);
-    padding:12px 32px; border-radius:30px;
-    font-size:14px; font-weight:500; letter-spacing:1px;
-    text-decoration:none; transition:all .2s;
-  }
+  .hero-cta { display:inline-block; background:white; color:var(--salmon); padding:12px 32px; border-radius:30px; font-size:14px; font-weight:500; letter-spacing:1px; text-decoration:none; transition:all .2s; }
   .hero-cta:hover { background:var(--cream); }
-  .hero-img {
-    height:440px;
-    background:var(--cream-dark);
-    display:flex; align-items:center; justify-content:center;
-    font-size:13px; color:var(--navy); opacity:.4;
-  }
+  .hero-img { height:440px; background:var(--cream-dark); display:flex; align-items:center; justify-content:center; font-size:13px; color:var(--navy); opacity:.4; }
 
-  /* SECTION WRAPPER */
+  /* ══════════════════════════════
+     SECTION BASE
+  ══════════════════════════════ */
   section { padding:72px 64px; }
   section.bg-cream { background:var(--cream); }
   section.bg-white { background:white; }
   section.bg-salmon { background:var(--salmon-bg); }
 
-  .section-label {
-    font-size:11px; letter-spacing:3px; color:var(--salmon);
-    font-weight:500; margin-bottom:12px; text-transform:uppercase;
-  }
-  .section-title {
-    font-family:'Noto Serif TC',serif;
-    font-size:clamp(22px,2.5vw,32px);
-    font-weight:400; color:var(--navy);
-    line-height:1.6; letter-spacing:3px;
-    margin-bottom:16px;
-  }
-  .section-desc {
-    font-size:14px; color:var(--navy-mid);
-    line-height:2.4; max-width:600px;
-    margin-bottom:48px;
-  }
+  .section-label { font-size:11px; letter-spacing:3px; color:var(--salmon); font-weight:500; margin-bottom:12px; text-transform:uppercase; }
+  .section-title { font-family:'Noto Serif TC',serif; font-size:clamp(22px,2.5vw,32px); font-weight:400; color:var(--navy); line-height:1.6; letter-spacing:3px; margin-bottom:16px; }
+  .section-desc { font-size:14px; color:var(--navy-mid); line-height:2.4; max-width:600px; margin-bottom:48px; }
 
-  /* CORE CONCEPT — 差異化區塊 */
-  .concept-grid {
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:24px;
-    margin-top:8px;
-  }
-  .concept-card {
-    background:white;
-    border-radius:20px;
-    padding:36px 32px;
-    position:relative;
-    overflow:hidden;
-  }
-  .concept-card::before {
-    content:'';
-    position:absolute; top:0; left:0;
-    width:4px; height:100%;
-    background:var(--salmon);
-    border-radius:4px 0 0 4px;
-  }
+  /* ══════════════════════════════
+     CONCEPT GRID
+  ══════════════════════════════ */
+  .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:8px; }
+  .concept-card { background:white; border-radius:20px; padding:36px 32px; position:relative; overflow:hidden; }
+  .concept-card::before { content:''; position:absolute; top:0; left:0; width:4px; height:100%; background:var(--salmon); border-radius:4px 0 0 4px; }
   .concept-card.full { grid-column:1/-1; display:flex; align-items:center; gap:40px; }
-  .concept-icon {
-    width:56px; height:56px; flex-shrink:0;
-    background:var(--cream);
-    border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-    margin-bottom:20px;
-  }
+  .concept-icon { width:56px; height:56px; flex-shrink:0; background:var(--cream); border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:20px; }
   .concept-card.full .concept-icon { margin-bottom:0; }
   .concept-icon svg { width:24px; height:24px; stroke:var(--salmon); fill:none; stroke-width:1.8; }
   .concept-card-title { font-size:16px; font-weight:500; color:var(--navy); margin-bottom:10px; letter-spacing:1px; }
   .concept-card-body { font-size:13px; color:var(--navy-mid); line-height:2.2; }
   .concept-card-body em { color:var(--accent-red); font-style:normal; font-weight:500; }
 
-  /* 三種控制方式 */
+  /* ══════════════════════════════
+     METHODS
+  ══════════════════════════════ */
   .methods { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-  .method-card {
-    background:white;
-    border-radius:20px;
-    overflow:hidden;
-    border:1px solid rgba(232,131,106,0.15);
-    transition:box-shadow .25s, transform .25s;
-  }
+  .method-card { background:white; border-radius:20px; overflow:hidden; border:1px solid rgba(232,131,106,0.15); transition:box-shadow .25s, transform .25s; }
   .method-card:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(232,131,106,0.15); }
-  .method-card-top {
-    background:var(--salmon-bg);
-    padding:32px 28px 24px;
-    position:relative;
-  }
-  .method-tag {
-    display:inline-block;
-    background:rgba(255,255,255,0.25);
-    color:white; font-size:11px; letter-spacing:2px;
-    padding:4px 12px; border-radius:20px;
-    margin-bottom:16px;
-  }
-  .method-name {
-    font-family:'Noto Serif TC',serif;
-    font-size:20px; font-weight:400;
-    color:white; letter-spacing:2px;
-    line-height:1.5;
-  }
+  .method-card-top { background:var(--salmon-bg); padding:32px 28px 24px; position:relative; }
+  .method-tag { display:inline-block; background:rgba(255,255,255,0.25); color:white; font-size:11px; letter-spacing:2px; padding:4px 12px; border-radius:20px; margin-bottom:16px; }
+  .method-name { font-family:'Noto Serif TC',serif; font-size:20px; font-weight:400; color:white; letter-spacing:2px; line-height:1.5; }
   .method-en { font-size:11px; color:rgba(255,255,255,0.65); letter-spacing:2px; margin-top:6px; }
   .method-body { padding:24px 28px 32px; }
   .method-desc { font-size:13px; color:var(--navy-mid); line-height:2.2; margin-bottom:20px; }
   .method-desc em { color:var(--accent-red); font-style:normal; font-weight:500; }
-  .method-fit {
-    font-size:12px; color:var(--navy);
-    background:var(--cream);
-    padding:12px 16px; border-radius:10px;
-    line-height:1.8;
-  }
+  .method-fit { font-size:12px; color:var(--navy); background:var(--cream); padding:12px 16px; border-radius:10px; line-height:1.8; }
   .method-fit-label { font-weight:500; color:var(--salmon); margin-bottom:4px; font-size:11px; letter-spacing:1px; }
 
-  /* LINE 追蹤流程 */
-  .flow {
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:0;
-    position:relative;
-    margin-top:8px;
-  }
-  .flow::before {
-    content:'';
-    position:absolute;
-    top:36px; left:12.5%; right:12.5%;
-    height:1px;
-    background:linear-gradient(to right, var(--salmon-pale), var(--salmon), var(--salmon-pale));
-  }
+  /* ══════════════════════════════
+     FLOW
+  ══════════════════════════════ */
+  .flow { display:grid; grid-template-columns:repeat(4,1fr); gap:0; position:relative; margin-top:8px; }
+  .flow::before { content:''; position:absolute; top:36px; left:12.5%; right:12.5%; height:1px; background:linear-gradient(to right, var(--salmon-pale), var(--salmon), var(--salmon-pale)); }
   .flow-step { display:flex; flex-direction:column; align-items:center; text-align:center; gap:16px; position:relative; z-index:1; padding:0 16px; }
-  .flow-num {
-    width:72px; height:72px; border-radius:50%;
-    background:var(--salmon-bg);
-    display:flex; align-items:center; justify-content:center;
-    flex-direction:column; gap:2px;
-  }
+  .flow-num { width:72px; height:72px; border-radius:50%; background:var(--salmon-bg); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:2px; }
   .flow-num-label { font-size:9px; color:rgba(255,255,255,0.7); letter-spacing:1px; }
   .flow-num-n { font-family:'Noto Serif TC',serif; font-size:22px; color:white; font-weight:400; line-height:1; }
   .flow-title { font-size:14px; font-weight:500; color:var(--navy); letter-spacing:1px; }
   .flow-body { font-size:12px; color:var(--navy-mid); line-height:2; }
 
-  /* FAQ */
+  /* ══════════════════════════════
+     FAQ
+  ══════════════════════════════ */
   .faq-list { display:flex; flex-direction:column; gap:0; max-width:800px; margin:0 auto; }
   .faq-item { border-bottom:1px solid rgba(45,58,74,0.1); }
-  .faq-q {
-    width:100%; background:none; border:none;
-    text-align:left; cursor:pointer;
-    font-family:'Noto Sans TC',sans-serif;
-    font-size:15px; color:var(--navy);
-    padding:24px 0; display:flex; justify-content:space-between; align-items:center;
-    letter-spacing:0.5px; font-weight:500;
-  }
+  .faq-q { width:100%; background:none; border:none; text-align:left; cursor:pointer; font-family:'Noto Sans TC',sans-serif; font-size:15px; color:var(--navy); padding:24px 0; display:flex; justify-content:space-between; align-items:center; letter-spacing:0.5px; font-weight:500; }
   .faq-q::after { content:'＋'; color:var(--salmon); font-size:20px; font-weight:300; transition:transform .2s; flex-shrink:0; }
   .faq-item.open .faq-q::after { content:'－'; }
-  .faq-a {
-    font-size:13px; color:var(--navy-mid);
-    line-height:2.4; padding:0 0 24px;
-    display:none;
-    max-width:680px;
-  }
+  .faq-a { font-size:13px; color:var(--navy-mid); line-height:2.4; padding:0 0 24px; display:none; max-width:680px; }
   .faq-a em { color:var(--accent-red); font-style:normal; font-weight:500; }
   .faq-item.open .faq-a { display:block; }
 
-  /* CTA BANNER */
-  .cta-banner {
-    background:var(--navy);
-    padding:72px 64px;
-    display:flex; align-items:center; justify-content:space-between; gap:40px;
-  }
+  /* ══════════════════════════════
+     CTA BANNER
+  ══════════════════════════════ */
+  .cta-banner { background:var(--navy); padding:72px 64px; display:flex; align-items:center; justify-content:space-between; gap:40px; }
   .cta-banner-text .section-title { color:white; margin-bottom:12px; }
   .cta-banner-text p { font-size:14px; color:rgba(255,255,255,0.6); line-height:2; }
   .cta-btns { display:flex; gap:16px; flex-shrink:0; }
-  .btn-primary {
-    background:var(--salmon); color:white;
-    padding:14px 36px; border-radius:30px;
-    font-size:14px; font-weight:500; letter-spacing:1px;
-    text-decoration:none; transition:all .2s; white-space:nowrap;
-  }
+  .btn-primary { background:var(--salmon); color:white; padding:14px 36px; border-radius:30px; font-size:14px; font-weight:500; letter-spacing:1px; text-decoration:none; transition:all .2s; white-space:nowrap; }
   .btn-primary:hover { background:var(--salmon-light); }
-  .btn-outline {
-    background:transparent; color:white;
-    border:1.5px solid rgba(255,255,255,0.35);
-    padding:14px 36px; border-radius:30px;
-    font-size:14px; letter-spacing:1px;
-    text-decoration:none; transition:all .2s; white-space:nowrap;
-  }
+  .btn-outline { background:transparent; color:white; border:1.5px solid rgba(255,255,255,0.35); padding:14px 36px; border-radius:30px; font-size:14px; letter-spacing:1px; text-decoration:none; transition:all .2s; white-space:nowrap; }
   .btn-outline:hover { border-color:white; }
 
-  /* FOOTER */
+  /* ══════════════════════════════
+     FOOTER
+  ══════════════════════════════ */
   footer { background:var(--navy); color:white; padding:48px 64px; display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:48px; }
   .footer-tagline { font-size:13px; color:rgba(255,255,255,.55); line-height:2; margin-top:16px; }
   .footer-heading { font-size:11px; letter-spacing:2px; color:rgba(255,255,255,.4); margin-bottom:16px; }
@@ -274,10 +205,109 @@
   .footer-info { font-size:13px; color:rgba(255,255,255,.6); line-height:2.2; }
   .footer-bottom { background:var(--navy); padding:16px 64px; border-top:1px solid rgba(255,255,255,.08); font-size:12px; color:rgba(255,255,255,.3); text-align:center; }
 
-  /* BREADCRUMB */
+  /* ══════════════════════════════
+     BREADCRUMB
+  ══════════════════════════════ */
   .breadcrumb { padding:16px 64px; background:white; font-size:12px; color:var(--navy-mid); border-bottom:1px solid rgba(45,58,74,0.08); }
   .breadcrumb a { color:var(--salmon); text-decoration:none; }
   .breadcrumb a:hover { text-decoration:underline; }
+
+  /* ══════════════════════════════
+     RWD — TABLET (≤1024px)
+  ══════════════════════════════ */
+  @media (max-width: 1024px) {
+    nav { padding: 0 32px; }
+    .nav-links { gap: 24px; }
+
+    .breadcrumb { padding: 16px 32px; }
+
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-text { padding: 48px 32px; }
+    .hero-img { display: none; }
+
+    section { padding: 56px 32px; }
+
+    .concept-grid { grid-template-columns: 1fr; }
+    .concept-card.full { flex-direction: column; align-items: flex-start; }
+    .concept-card.full .concept-icon { margin-bottom: 16px; }
+
+    .methods { grid-template-columns: 1fr 1fr; gap: 16px; }
+    .methods .method-card:last-child { grid-column: 1 / -1; max-width: 480px; margin: 0 auto; width: 100%; }
+
+    .flow { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .flow::before { display: none; }
+
+    .cta-banner { padding: 56px 32px; flex-direction: column; align-items: flex-start; }
+    .cta-btns { flex-wrap: wrap; }
+
+    footer { padding: 48px 32px; gap: 32px; }
+    .footer-bottom { padding: 16px 32px; }
+  }
+
+  /* ══════════════════════════════
+     RWD — MOBILE (≤768px)
+  ══════════════════════════════ */
+  @media (max-width: 768px) {
+    /* NAV */
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-icons { display: none; }
+    .hamburger { display: flex; }
+
+    /* BREADCRUMB */
+    .breadcrumb { padding: 12px 20px; }
+
+    /* HERO */
+    .hero { grid-template-columns: 1fr; }
+    .hero-text { padding: 40px 20px 48px; }
+    .hero-img { display: none; }
+    .hero-h1 { font-size: clamp(22px, 6vw, 30px); letter-spacing: 2px; }
+    .hero-sub { font-size: 13px; }
+
+    /* SECTIONS */
+    section { padding: 48px 20px; }
+
+    .section-desc { margin-bottom: 32px; }
+
+    /* CONCEPT GRID */
+    .concept-grid { grid-template-columns: 1fr; gap: 16px; }
+    .concept-card { padding: 28px 24px; }
+    .concept-card.full { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .concept-card.full .concept-icon { margin-bottom: 0; }
+
+    /* METHODS */
+    .methods { grid-template-columns: 1fr; gap: 16px; }
+    .methods .method-card:last-child { grid-column: auto; max-width: 100%; }
+
+    /* FLOW */
+    .flow { grid-template-columns: 1fr; gap: 0; }
+    .flow::before { display: none; }
+    .flow-step {
+      flex-direction: row;
+      text-align: left;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(45,58,74,0.08);
+    }
+    .flow-step:last-child { border-bottom: none; }
+    .flow-num { width: 56px; height: 56px; flex-shrink: 0; }
+    .flow-num-n { font-size: 18px; }
+    .flow-title { text-align: left; }
+    .flow-body { text-align: left; }
+
+    /* FAQ */
+    .faq-q { font-size: 14px; }
+
+    /* CTA BANNER */
+    .cta-banner { padding: 48px 20px; flex-direction: column; align-items: flex-start; gap: 28px; }
+    .cta-btns { flex-direction: column; width: 100%; }
+    .btn-primary, .btn-outline { text-align: center; padding: 14px; }
+
+    /* FOOTER */
+    footer { grid-template-columns: 1fr; padding: 40px 20px; gap: 32px; }
+    .footer-bottom { padding: 16px 20px; }
+  }
 </style>
 </head>
 <body>
@@ -329,7 +359,42 @@
     <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
     <svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
   </div>
+  <button class="hamburger" id="hamburger" aria-label="開啟選單">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- 手機全螢幕選單 -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-item">
+    <a class="mobile-menu-link" href="index.html">關於我們</a>
+  </div>
+  <div class="mobile-menu-item" id="mob-service">
+    <button class="mobile-menu-link">專業服務 <span class="arrow">▾</span></button>
+    <div class="mobile-submenu">
+      <div class="mobile-submenu-label">成人配鏡</div>
+      <a href="#">顧問式驗光</a>
+      <a href="#">老花多焦點</a>
+      <a href="#">高度近視專區</a>
+      <div class="mobile-submenu-label">兒童配鏡</div>
+      <a href="children-myopia.html">兒童近視管理</a>
+      <a href="#">Kids 視力健康紀錄</a>
+    </div>
+  </div>
+  <div class="mobile-menu-item" id="mob-brand">
+    <button class="mobile-menu-link">眼鏡品牌 <span class="arrow">▾</span></button>
+    <div class="mobile-submenu">
+      <a href="#">LIPO</a>
+      <a href="#">eyes-cream</a>
+      <a href="#">spec espace</a>
+      <a href="#">MASUNAGA</a>
+    </div>
+  </div>
+  <div class="mobile-menu-item">
+    <a class="mobile-menu-link" href="#">專屬配鏡流程</a>
+  </div>
+  <a class="mobile-cta" href="#">立即預約</a>
+</div>
 
 <!-- BREADCRUMB -->
 <div style="margin-top:64px;" class="breadcrumb">
@@ -340,10 +405,7 @@
 <section class="hero" style="padding:0;">
   <div class="hero-text">
     <p class="hero-label">Children Myopia Management</p>
-    <h1 class="hero-h1">
-      台南兒童近視管理<br>
-      不只是配一支眼鏡
-    </h1>
+    <h1 class="hero-h1">台南兒童近視管理<br>不只是配一支眼鏡</h1>
     <p class="hero-sub">
       良美眼鏡為 <strong>6–15 歲</strong> 孩子提供近視控制服務。<br>
       我們結合專業鏡片與每月 LINE 追蹤，<br>
@@ -358,39 +420,23 @@
 <section class="bg-cream">
   <p class="section-label">Our Approach</p>
   <h2 class="section-title">良美的近視管理，<br>為什麼不一樣？</h2>
-  <p class="section-desc">
-    近視控制不是只靠一片鏡片就能達成。<br>
-    孩子的視力狀況每個月都在變化，延誤發現就是延誤治療。
-  </p>
-
+  <p class="section-desc">近視控制不是只靠一片鏡片就能達成。<br>孩子的視力狀況每個月都在變化，延誤發現就是延誤治療。</p>
   <div class="concept-grid">
     <div class="concept-card">
-      <div class="concept-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      </div>
+      <div class="concept-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
       <div class="concept-card-title">產品＋習慣管理的結合</div>
-      <div class="concept-card-body">
-        單靠鏡片控制近視，效果有限。良美同步關注孩子的<em>用眼習慣</em>——用眼時間、閱讀距離、戶外活動量——才能讓控制效果真正發揮。
-      </div>
+      <div class="concept-card-body">單靠鏡片控制近視，效果有限。良美同步關注孩子的<em>用眼習慣</em>——用眼時間、閱讀距離、戶外活動量——才能讓控制效果真正發揮。</div>
     </div>
     <div class="concept-card">
-      <div class="concept-icon">
-        <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
-      </div>
+      <div class="concept-icon"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
       <div class="concept-card-title">每月 LINE 通知追蹤</div>
-      <div class="concept-card-body">
-        每個月初，良美主動傳 LINE 提醒家長帶孩子回診。提早發現<em>鏡框歪斜</em>或<em>視力疲勞</em>問題，不讓小狀況變成大近視。
-      </div>
+      <div class="concept-card-body">每個月初，良美主動傳 LINE 提醒家長帶孩子回診。提早發現<em>鏡框歪斜</em>或<em>視力疲勞</em>問題，不讓小狀況變成大近視。</div>
     </div>
     <div class="concept-card full">
-      <div class="concept-icon">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      </div>
+      <div class="concept-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
       <div>
         <div class="concept-card-title">把握 6–15 歲的關鍵期</div>
-        <div class="concept-card-body">
-          近視加深速度在學齡期最快。這個階段若沒有妥善管理，每年可能增加 <em>75–100 度</em>以上。良美的月度追蹤機制，讓問題在惡化前就被發現並處理。
-        </div>
+        <div class="concept-card-body">近視加深速度在學齡期最快。這個階段若沒有妥善管理，每年可能增加 <em>75–100 度</em>以上。良美的月度追蹤機制，讓問題在惡化前就被發現並處理。</div>
       </div>
     </div>
   </div>
@@ -400,12 +446,8 @@
 <section class="bg-white">
   <p class="section-label">Control Methods</p>
   <h2 class="section-title">三種近視控制方式，<br>依孩子狀況個別建議</h2>
-  <p class="section-desc">
-    每個孩子的年齡、度數、生活習慣都不同。良美不主推單一方案，而是根據完整評估後給家長中立的建議。
-  </p>
-
+  <p class="section-desc">每個孩子的年齡、度數、生活習慣都不同。良美不主推單一方案，而是根據完整評估後給家長中立的建議。</p>
   <div class="methods">
-
     <div class="method-card">
       <div class="method-card-top">
         <div class="method-tag">夜間配戴</div>
@@ -413,16 +455,13 @@
         <div class="method-en">Orthokeratology</div>
       </div>
       <div class="method-body">
-        <p class="method-desc">
-          睡眠時配戴，利用鏡片輕壓角膜改變弧度，白天無需戴鏡即可清楚視物。研究顯示對控制近視加深效果顯著，<em>適合度數仍在增加中</em>的孩子。
-        </p>
+        <p class="method-desc">睡眠時配戴，利用鏡片輕壓角膜改變弧度，白天無需戴鏡即可清楚視物。研究顯示對控制近視加深效果顯著，<em>適合度數仍在增加中</em>的孩子。</p>
         <div class="method-fit">
           <div class="method-fit-label">▸ 適合對象</div>
           近視 100–600 度・無嚴重散光・能配合清潔護理的孩子
         </div>
       </div>
     </div>
-
     <div class="method-card">
       <div class="method-card-top">
         <div class="method-tag">特殊設計鏡片</div>
@@ -430,16 +469,13 @@
         <div class="method-en">Defocus Spectacle Lens</div>
       </div>
       <div class="method-body">
-        <p class="method-desc">
-          日間配戴的近視控制眼鏡，透過鏡片周邊的微小離焦結構，減緩眼軸增長。對<em>年齡較小或無法適應 OK 鏡</em>的孩子是好選項。
-        </p>
+        <p class="method-desc">日間配戴的近視控制眼鏡，透過鏡片周邊的微小離焦結構，減緩眼軸增長。對<em>年齡較小或無法適應 OK 鏡</em>的孩子是好選項。</p>
         <div class="method-fit">
           <div class="method-fit-label">▸ 適合對象</div>
           6 歲以上・初期近視・不適合硬式隱形眼鏡的孩子
         </div>
       </div>
     </div>
-
     <div class="method-card">
       <div class="method-card-top">
         <div class="method-tag">藥物輔助</div>
@@ -447,16 +483,13 @@
         <div class="method-en">Low-dose Atropine</div>
       </div>
       <div class="method-body">
-        <p class="method-desc">
-          每晚睡前點一滴低濃度眼藥水，可有效減緩眼軸增長。常與鏡片方案<em>合併使用</em>，副作用低，是目前臨床證據最充分的輔助方式之一。
-        </p>
+        <p class="method-desc">每晚睡前點一滴低濃度眼藥水，可有效減緩眼軸增長。常與鏡片方案<em>合併使用</em>，副作用低，是目前臨床證據最充分的輔助方式之一。</p>
         <div class="method-fit">
           <div class="method-fit-label">▸ 適合對象</div>
           需由眼科醫師開立處方・良美可協助轉介評估
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -464,42 +497,35 @@
 <section class="bg-cream">
   <p class="section-label">Monthly Follow-up</p>
   <h2 class="section-title">良美的月度追蹤流程</h2>
-  <p class="section-desc">
-    配鏡只是開始。讓孩子視力穩定的關鍵，在於持續、規律的追蹤與調整。
-  </p>
-
+  <p class="section-desc">配鏡只是開始。讓孩子視力穩定的關鍵，在於持續、規律的追蹤與調整。</p>
   <div class="flow">
     <div class="flow-step">
-      <div class="flow-num">
-        <span class="flow-num-label">STEP</span>
-        <span class="flow-num-n">1</span>
+      <div class="flow-num"><span class="flow-num-label">STEP</span><span class="flow-num-n">1</span></div>
+      <div>
+        <div class="flow-title">初次評估</div>
+        <div class="flow-body">生活問診<br>完整視功能檢測<br>方案討論</div>
       </div>
-      <div class="flow-title">初次評估</div>
-      <div class="flow-body">生活問診<br>完整視功能檢測<br>方案討論</div>
     </div>
     <div class="flow-step">
-      <div class="flow-num">
-        <span class="flow-num-label">STEP</span>
-        <span class="flow-num-n">2</span>
+      <div class="flow-num"><span class="flow-num-label">STEP</span><span class="flow-num-n">2</span></div>
+      <div>
+        <div class="flow-title">開始配戴</div>
+        <div class="flow-body">配鏡或配藥<br>衛教說明<br>加入 LINE 追蹤</div>
       </div>
-      <div class="flow-title">開始配戴</div>
-      <div class="flow-body">配鏡或配藥<br>衛教說明<br>加入 LINE 追蹤</div>
     </div>
     <div class="flow-step">
-      <div class="flow-num">
-        <span class="flow-num-label">STEP</span>
-        <span class="flow-num-n">3</span>
+      <div class="flow-num"><span class="flow-num-label">STEP</span><span class="flow-num-n">3</span></div>
+      <div>
+        <div class="flow-title">每月 LINE 通知</div>
+        <div class="flow-body">良美主動提醒<br>確認回診時間<br>紀錄視力數據</div>
       </div>
-      <div class="flow-title">每月 LINE 通知</div>
-      <div class="flow-body">良美主動提醒<br>確認回診時間<br>紀錄視力數據</div>
     </div>
     <div class="flow-step">
-      <div class="flow-num">
-        <span class="flow-num-label">STEP</span>
-        <span class="flow-num-n">4</span>
+      <div class="flow-num"><span class="flow-num-label">STEP</span><span class="flow-num-n">4</span></div>
+      <div>
+        <div class="flow-title">回診調整</div>
+        <div class="flow-body">校正鏡框<br>確認視力疲勞狀況<br>必要時調整方案</div>
       </div>
-      <div class="flow-title">回診調整</div>
-      <div class="flow-body">校正鏡框<br>確認視力疲勞狀況<br>必要時調整方案</div>
     </div>
   </div>
 </section>
@@ -508,40 +534,27 @@
 <section class="bg-white">
   <p class="section-label">FAQ</p>
   <h2 class="section-title" style="text-align:center; max-width:100%;">家長常見問題</h2>
-  <p class="section-desc" style="margin:0 auto 48px; text-align:center;">
-    有疑問？我們整理了最多家長想問的問題。
-  </p>
-
+  <p class="section-desc" style="margin:0 auto 48px; text-align:center;">有疑問？我們整理了最多家長想問的問題。</p>
   <div class="faq-list">
     <div class="faq-item">
       <button class="faq-q">幾歲開始適合做近視控制？</button>
-      <div class="faq-a">
-        一般建議從 <em>6 歲</em>起就可以開始關注近視狀況。這個年齡眼睛發育快速，若已出現近視度數且每年持續加深，就是開始控制的好時機。良美會根據孩子的年齡與度數，建議最適合的方式。
-      </div>
+      <div class="faq-a">一般建議從 <em>6 歲</em>起就可以開始關注近視狀況。這個年齡眼睛發育快速，若已出現近視度數且每年持續加深，就是開始控制的好時機。良美會根據孩子的年齡與度數，建議最適合的方式。</div>
     </div>
     <div class="faq-item">
       <button class="faq-q">OK 鏡安全嗎？孩子能自己清洗嗎？</button>
-      <div class="faq-a">
-        OK 鏡是經過衛福部認可的醫療器材，在正確的清潔流程下相當安全。良美會在配戴前安排完整的護理衛教，確保家長與孩子都學會正確清洗步驟。一般建議 <em>8 歲以上</em>的孩子，在家長協助下可以開始學習自行護理。
-      </div>
+      <div class="faq-a">OK 鏡是經過衛福部認可的醫療器材，在正確的清潔流程下相當安全。良美會在配戴前安排完整的護理衛教，確保家長與孩子都學會正確清洗步驟。一般建議 <em>8 歲以上</em>的孩子，在家長協助下可以開始學習自行護理。</div>
     </div>
     <div class="faq-item">
       <button class="faq-q">每個月都要回診嗎？時間上很難配合怎麼辦？</button>
-      <div class="faq-a">
-        良美的月度追蹤以 <em>LINE 通知</em>為主，讓家長彈性安排時間。回診並不需要每次都做完整檢查，多數時候只是確認鏡框狀態與孩子的用眼習慣，約 15–20 分鐘即可完成。若有特殊狀況，我們再做進一步評估。
-      </div>
+      <div class="faq-a">良美的月度追蹤以 <em>LINE 通知</em>為主，讓家長彈性安排時間。回診並不需要每次都做完整檢查，多數時候只是確認鏡框狀態與孩子的用眼習慣，約 15–20 分鐘即可完成。若有特殊狀況，我們再做進一步評估。</div>
     </div>
     <div class="faq-item">
       <button class="faq-q">近視度數已經很高了，還有辦法控制嗎？</button>
-      <div class="faq-a">
-        即使已有較高度數，控制的目標是<em>減緩加深速度</em>，而不是讓度數消失。每少增加 100 度，長遠來說就是降低了高度近視帶來的眼睛病變風險。只要眼睛還在發育，控制都有其意義。
-      </div>
+      <div class="faq-a">即使已有較高度數，控制的目標是<em>減緩加深速度</em>，而不是讓度數消失。每少增加 100 度，長遠來說就是降低了高度近視帶來的眼睛病變風險。只要眼睛還在發育，控制都有其意義。</div>
     </div>
     <div class="faq-item">
       <button class="faq-q">良美和其他眼鏡行有什麼不同？</button>
-      <div class="faq-a">
-        良美由<em>執照驗光師</em>親自接診，不以業績為導向，只推薦適合孩子的方案。最大的不同在於：我們不只配鏡，還主動追蹤——每個月 LINE 提醒、記錄每次回診數據，讓家長清楚看到孩子視力的變化趨勢。
-      </div>
+      <div class="faq-a">良美由<em>執照驗光師</em>親自接診，不以業績為導向，只推薦適合孩子的方案。最大的不同在於：我們不只配鏡，還主動追蹤——每個月 LINE 提醒、記錄每次回診數據，讓家長清楚看到孩子視力的變化趨勢。</div>
     </div>
   </div>
 </section>
@@ -585,26 +598,53 @@
   <div>
     <p class="footer-heading">CONTACT</p>
     <div class="footer-info">
-      台南市永康區<br>
+      台南市永康區永大路二段189號<br>
       ───────────────<br><br>
-      週一〜週六　10:00 – 20:00<br>
-      週日　10:00 – 18:00<br><br>
-      📍 Google Maps<br>
-      📞 預約電話
+      週一〜週六　10:00 – 21:00<br>
+      週日　12:00 – 19:00<br><br>
+      📍 <a href="https://share.google/OFnrIagYW2B9vKdJe" target="_blank" style="color:rgba(255,255,255,0.6); text-decoration:underline;">Google Maps</a><br>
+      📞 <a href="tel:0627272867" style="color:rgba(255,255,255,0.6); text-decoration:underline;">06-2727867</a>
     </div>
   </div>
 </footer>
 <div class="footer-bottom">
-  © 2024 良美眼鏡 Liangmei Eyewear · 台南永康驗光所
+  © 創立於1993年 · 台南永康良美眼鏡 Liangmei Eyewear
 </div>
 
 <script>
+  // FAQ
   document.querySelectorAll('.faq-q').forEach(btn => {
     btn.addEventListener('click', () => {
       const item = btn.parentElement;
       const isOpen = item.classList.contains('open');
       document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
       if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // 漢堡選單
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+
+  ['mob-service', 'mob-brand'].forEach(id => {
+    const item = document.getElementById(id);
+    if (!item) return;
+    item.querySelector('button').addEventListener('click', () => {
+      item.classList.toggle('open');
+    });
+  });
+
+  document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
     });
   });
 </script>
