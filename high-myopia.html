@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高度近視選鏡指南｜找到真正適合的鏡框｜良美眼鏡</title>
+<meta name="description" content="鏡片太厚、眼鏡太重、找不到好看的框？良美眼鏡提供高度近視專業選鏡建議，依照你的困擾推薦最適合的鏡框與鏡片組合。台南永康配鏡推薦。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --salmon: #E8836A;
+    --salmon-light: #F0A08A;
+    --salmon-pale: #F5C4B3;
+    --salmon-bg: #F7F3EE;
+    --cream: #F5EFE0;
+    --cream-dark: #EDE5D0;
+    --navy: #2D3A4A;
+    --navy-mid: #3D4F63;
+    --accent-red: #C05040;
+    --white: #FFFFFF;
+    --ivory: #F7F3EE;
+    --taupe: #B79C86;
+    --taupe-light: #D4C4B0;
+    --taupe-pale: #EDE5D0;
+    --sand: #DDD4C8;
+    --graphite: #2F3438;
+    --graphite-mid: #4A5560;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Noto Sans TC',sans-serif;background:var(--ivory);color:var(--graphite);overflow-x:hidden;}
+
+  /* ══ NAV ══ */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--salmon-bg);
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 0 48px;
+    height: 64px;
+    border-bottom: 1px solid rgba(45,58,74,0.1);
+  }
+  .nav-left { display: flex; align-items: center; gap: 32px; }
+  .nav-center { display: flex; justify-content: center; }
+  .nav-right { display: flex; align-items: center; justify-content: flex-end; gap: 16px; }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo-mark { width: 38px; height: 38px; }
+  .logo-text { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 500; color: var(--navy); letter-spacing: 2px; }
+  .nav-links { display: none; list-style: none; }
+  .nav-links a { font-size: 14px; color: var(--navy); text-decoration: none; letter-spacing: 1px; opacity: 0.9; transition: opacity 0.2s; }
+  .nav-links a:hover { opacity: 1; }
+  .nav-dropdown { position: relative; }
+  .nav-dropdown > a::after { content: ' ▾'; font-size: 10px; }
+  .dropdown-menu {
+    display: none; position: absolute; top: 100%; left: 50%;
+    transform: translateX(-50%); background: white; border-radius: 12px;
+    padding: 20px 28px; min-width: 280px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12); margin-top: 0; padding-top: 12px;
+  }
+  .dropdown-group { display: flex; flex-direction: column; gap: 8px; }
+  .dropdown-label { font-size: 12px; color: var(--accent-red); letter-spacing: 1px; font-weight: 500; margin-bottom: 4px; }
+  .dropdown-menu a { font-size: 13px; color: var(--navy); text-decoration: none; opacity: 1; line-height: 1.8; }
+  .dropdown-menu a:hover { color: var(--accent-red); }
+  .nav-cta {
+    background: transparent; border: 1.5px solid var(--navy);
+    color: var(--navy) !important; padding: 7px 20px; border-radius: 24px;
+    font-size: 14px !important; transition: all 0.2s !important;
+    cursor: pointer; text-decoration: none; letter-spacing: 1px;
+  }
+  .nav-cta:hover { background: var(--navy) !important; color: var(--white) !important; opacity: 1 !important; }
+  .nav-icons { display: flex; gap: 16px; align-items: center; }
+  .nav-icons svg { width: 20px; height: 20px; stroke: var(--navy); fill: none; cursor: pointer; opacity: 0.7; }
+  .hamburger {
+    display: flex; flex-direction: column; justify-content: center;
+    gap: 5px; width: 32px; height: 32px;
+    background: none; border: none; cursor: pointer; padding: 4px; z-index: 200;
+  }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--navy); border-radius: 2px; transition: all 0.3s; transform-origin: center; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu {
+    display: none; position: fixed; top: 64px; left: 0; right: 0; bottom: 0;
+    background: var(--salmon-bg); z-index: 99; overflow-y: auto;
+    padding: 32px 32px 48px; flex-direction: column; gap: 0;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu-item { border-bottom: 1px solid rgba(45,58,74,0.1); }
+  .mobile-menu-link {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 0; font-size: 17px; color: var(--navy);
+    text-decoration: none; letter-spacing: 1px;
+    background: none; border: none; width: 100%; text-align: left; cursor: pointer;
+  }
+  .mobile-menu-link .arrow { font-size: 12px; transition: transform 0.2s; opacity: 0.6; }
+  .mobile-menu-item.open .mobile-menu-link .arrow { transform: rotate(180deg); }
+  .mobile-submenu { display: none; padding: 4px 0 16px 16px; flex-direction: column; gap: 0; }
+  .mobile-menu-item.open .mobile-submenu { display: flex; }
+  .mobile-submenu-label { font-size: 11px; color: var(--salmon); letter-spacing: 2px; margin: 12px 0 6px; }
+  .mobile-submenu a { font-size: 15px; color: var(--navy-mid); text-decoration: none; padding: 8px 0; letter-spacing: 0.5px; }
+  .mobile-cta {
+    margin-top: 32px; display: block; text-align: center;
+    background: var(--salmon); color: white !important;
+    padding: 14px; border-radius: 30px; font-size: 15px; font-weight: 500; letter-spacing: 1px; text-decoration: none;
+  }
+
+  /* ── BREADCRUMB ── */
+  .breadcrumb{margin-top:64px;padding:14px 64px;background:var(--ivory);font-size:12px;color:var(--graphite-mid);border-bottom:1px solid var(--sand);}
+  .breadcrumb a{color:var(--taupe);text-decoration:none;}
+  .breadcrumb a:hover{text-decoration:underline;}
+
+  /* ── HERO ── */
+  .hero{
+    padding:80px 64px 72px;
+    background:var(--white);
+    border-bottom:1px solid var(--sand);
+  }
+  .hero-eyebrow{font-size:11px;letter-spacing:3px;color:var(--taupe);text-transform:uppercase;margin-bottom:20px;}
+  .hero-h1{
+    font-family:'Noto Serif TC',serif;
+    font-size:clamp(30px,3.8vw,52px);
+    font-weight:300;color:var(--graphite);
+    line-height:1.5;letter-spacing:4px;margin-bottom:20px;
+  }
+  .hero-sub{font-size:15px;color:var(--graphite-mid);line-height:2;letter-spacing:0.5px;max-width:520px;}
+
+  /* ══ ACCORDION SECTION ══ */
+  .accordion-section {
+    position: relative;
+    width: 100%;
+    min-height: 100svh;
+    overflow: hidden;
+  }
+
+  /* ── 全寬背景圖層，圖片疊加切換 ── */
+  .acc-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .acc-img-slot {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity .55s ease;
+  }
+  .acc-img-slot.visible { opacity: 1; }
+
+  /* 佔位色塊（換圖時改成 <img>） */
+  .acc-img-slot[data-slot="default"]        { background: #C8C0B4; }
+  .acc-img-slot[data-slot="thick-lash"]     { background: #B5AA9E; }
+  .acc-img-slot[data-slot="thick-999"]      { background: #A8A09A; }
+  .acc-img-slot[data-slot="weight-kozo"]    { background: #A2ADAA; }
+  .acc-img-slot[data-slot="weight-spec"]    { background: #9EA8A5; }
+  .acc-img-slot[data-slot="weight-eyescloud"]{ background: #A8B0AD; }
+  .acc-img-slot[data-slot="weight-sivimax"] { background: #B0B8B5; }
+  .acc-img-slot[data-slot="style-taylor"]   { background: #C0B4A2; }
+  .acc-img-slot[data-slot="style-lash"]     { background: #BAB0A0; }
+  .acc-img-slot[data-slot="style-999"]      { background: #B4AA98; }
+
+  .acc-img-slot img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+
+  /* 左側漸層遮罩，讓文字在圖片上可讀 */
+  .acc-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to right,
+      rgba(30,26,22,0.72) 0%,
+      rgba(30,26,22,0.45) 45%,
+      rgba(30,26,22,0.0) 75%
+    );
+  }
+
+  /* ── 文字＋accordion 疊在圖片上 ── */
+  .accordion-content {
+    position: relative;
+    z-index: 2;
+    max-width: 520px;
+    padding: 80px 64px 80px;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .accordion-section-label {
+    font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase; margin-bottom: 48px;
+  }
+
+  /* ── accordion 列表 ── */
+  .acc-item {
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+  }
+  .acc-item:first-child {
+    border-top: 1px solid rgba(255,255,255,0.18);
+  }
+
+  .acc-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .acc-trigger-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+  }
+
+  /* ＋ / − 圓形按鈕 */
+  .acc-icon {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: border-color .2s, background .2s;
+    position: relative;
+  }
+  .acc-icon::before,
+  .acc-icon::after {
+    content: '';
+    position: absolute;
+    background: rgba(255,255,255,0.8);
+    border-radius: 2px;
+    transition: transform .25s, opacity .25s;
+  }
+  .acc-icon::before { width: 10px; height: 1.5px; }
+  .acc-icon::after  { width: 1.5px; height: 10px; }
+
+  .acc-item.open .acc-icon {
+    border-color: rgba(255,255,255,0.8);
+    background: rgba(255,255,255,0.15);
+  }
+  .acc-item.open .acc-icon::after { transform: rotate(90deg); opacity: 0; }
+
+  .acc-trigger-name {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 17px; font-weight: 400;
+    color: rgba(255,255,255,0.9); letter-spacing: 2px;
+    line-height: 1.4;
+    transition: color .2s;
+  }
+  .acc-trigger:hover .acc-trigger-name { color: white; }
+
+  .acc-trigger-sub {
+    font-size: 11px; color: rgba(255,255,255,0.4);
+    letter-spacing: 1.5px; text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* 展開內容 */
+  .acc-body {
+    display: none;
+    padding: 4px 0 28px 44px;
+    animation: accFade .25s ease;
+  }
+  .acc-item.open .acc-body { display: block; }
+
+  @keyframes accFade {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .acc-desc {
+    font-size: 13px; color: rgba(255,255,255,0.7);
+    line-height: 2.2; margin-bottom: 24px;
+  }
+
+  .acc-recs {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+  }
+
+  .acc-rec-row {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 14px;
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background .2s, border-color .2s;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    cursor: pointer;
+    text-decoration: none;
+    aspect-ratio: 1;
+  }
+  .acc-rec-row:hover,
+  .acc-rec-row.active {
+    background: rgba(255,255,255,0.18);
+    border-color: rgba(255,255,255,0.45);
+  }
+
+  .acc-rec-name {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 15px; font-weight: 400;
+    color: white; letter-spacing: 1px;
+    text-align: center; line-height: 1.3;
+  }
+  .acc-rec-badge {
+    font-size: 10px; letter-spacing: 1px; color: rgba(255,255,255,0.7);
+    background: rgba(255,255,255,0.15); padding: 3px 10px; border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .acc-note {
+    margin-top: 18px;
+    font-size: 12px; color: rgba(255,255,255,0.6);
+    line-height: 2;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 14px 18px; border-radius: 10px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .acc-note strong { color: rgba(255,255,255,0.9); }
+
+  .mob-tabs, .mob-modal { display: none; }
+
+  /* ── VALUE STRIP ── */
+  .value-strip{
+    background:var(--graphite);
+    padding:48px 64px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:0;
+  }
+  .value-item{
+    display:flex;align-items:flex-start;gap:16px;
+    padding:0 32px;
+    border-right:1px solid rgba(255,255,255,.08);
+  }
+  .value-item:first-child{padding-left:0;}
+  .value-item:last-child{border-right:none;}
+  .value-icon{width:36px;height:36px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+  .value-icon svg{width:22px;height:22px;stroke:var(--taupe);fill:none;stroke-width:1.5;}
+  .value-title{font-size:13px;font-weight:500;color:white;letter-spacing:1px;margin-bottom:6px;}
+  .value-desc{font-size:11px;color:rgba(255,255,255,.45);line-height:1.9;}
+
+  /* ── CTA BANNER ── */
+  .cta-banner{background:var(--taupe-pale);padding:72px 64px;display:flex;align-items:center;justify-content:space-between;gap:40px;border-top:1px solid var(--sand);}
+  .cta-banner-title{font-family:'Noto Serif TC',serif;font-size:clamp(20px,2.2vw,28px);font-weight:300;color:var(--graphite);letter-spacing:3px;line-height:1.6;margin-bottom:12px;}
+  .cta-banner-sub{font-size:13px;color:var(--graphite-mid);line-height:2;}
+  .cta-btns{display:flex;gap:16px;flex-shrink:0;}
+  .btn-primary{background:var(--graphite);color:white;padding:14px 36px;border-radius:30px;font-size:14px;letter-spacing:1px;text-decoration:none;transition:opacity .2s;white-space:nowrap;}
+  .btn-primary:hover{opacity:.85;}
+  .btn-outline{background:transparent;color:var(--graphite);border:1.5px solid var(--graphite);padding:14px 36px;border-radius:30px;font-size:14px;letter-spacing:1px;text-decoration:none;transition:opacity .2s;white-space:nowrap;}
+  .btn-outline:hover{opacity:.7;}
+
+  /* ── FOOTER ── */
+  footer{background:var(--graphite);color:white;padding:48px 64px;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;border-top:1px solid rgba(255,255,255,.05);}
+  .footer-tagline{font-size:13px;color:rgba(255,255,255,.5);line-height:2;margin-top:16px;}
+  .footer-heading{font-size:11px;letter-spacing:2px;color:rgba(255,255,255,.35);margin-bottom:16px;}
+  .footer-links{list-style:none;display:flex;flex-direction:column;gap:10px;}
+  .footer-links a{font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s;}
+  .footer-links a:hover{color:white;}
+  .footer-info{font-size:13px;color:rgba(255,255,255,.55);line-height:2.2;}
+  .footer-info a{color:rgba(255,255,255,.55);text-decoration:none;}
+  .footer-bottom{background:var(--graphite);padding:16px 64px;border-top:1px solid rgba(255,255,255,.05);font-size:12px;color:rgba(255,255,255,.3);text-align:center;}
+
+  /* ── RWD ── */
+  @media(max-width:1024px){
+    nav{padding:0 32px;}
+    .nav-links{display:none;}
+    .nav-right{display:none;}
+    .nav-icons{display:none;}
+    .breadcrumb{padding:14px 32px;}
+    .hero{padding:60px 32px 56px;}
+    .accordion-content{padding:72px 32px 72px;}
+    .value-strip{padding:40px 32px;grid-template-columns:repeat(2,1fr);gap:32px;}
+    .value-item{padding:0;border-right:none;}
+    .cta-banner{padding:56px 32px;flex-direction:column;align-items:flex-start;}
+    footer{padding:48px 32px;}
+    .footer-bottom{padding:16px 32px;}
+  }
+  /* ══ 手機版 ACCORDION（≤640px）══
+     全寬背景圖，標籤懸浮底部
+     點選後說明展開在圖片下方（同一畫面）
+  ══════════════════════════════ */
+  @media(max-width:640px){
+
+    .accordion-section {
+      min-height: 100svh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* 桌機版左側文字欄隱藏 */
+    .accordion-section .accordion-content { display: none; }
+
+    /* 圖片層：撐滿整個 section */
+    .acc-bg {
+      position: absolute !important;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .acc-img-slot {
+      position: absolute;
+      inset: 0;
+    }
+    /* 遮罩改為由下往上 */
+    .acc-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        to top,
+        rgba(20,16,12,0.75) 0%,
+        rgba(20,16,12,0.25) 45%,
+        rgba(20,16,12,0.0)  70%
+      );
+    }
+
+    /* 標籤列：固定在 section 最底部 */
+    .mob-tabs {
+      display: flex;
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      z-index: 5;
+      overflow-x: auto;
+      gap: 10px;
+      padding: 16px 20px 24px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      background: linear-gradient(to top, rgba(18,14,10,0.65) 0%, transparent 100%);
+    }
+    .mob-tabs::-webkit-scrollbar { display: none; }
+
+    .mob-tab {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 30px;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      white-space: nowrap;
+      cursor: pointer;
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 13px;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.5px;
+      transition: border-color .2s, background .2s;
+      flex-shrink: 0;
+    }
+    .mob-tab .mob-tab-icon {
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.55);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; flex-shrink: 0;
+    }
+    .mob-tab .mob-tab-icon::before,
+    .mob-tab .mob-tab-icon::after {
+      content: '';
+      position: absolute;
+      background: rgba(255,255,255,0.85);
+      border-radius: 1px;
+      transition: transform .2s, opacity .2s;
+    }
+    .mob-tab .mob-tab-icon::before { width: 8px; height: 1.5px; }
+    .mob-tab .mob-tab-icon::after  { width: 1.5px; height: 8px; }
+    .mob-tab.active { border-color: rgba(255,255,255,0.75); background: rgba(255,255,255,0.2); }
+    .mob-tab.active .mob-tab-icon::after { transform: rotate(90deg); opacity: 0; }
+
+    /* 展開後：標籤縮成小圓圈，文字隱藏 */
+    .mob-tab.active .mob-tab-text {
+      display: none;
+    }
+    .mob-tab.active {
+      padding: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all .25s ease;
+    }
+    .mob-tab {
+      transition: all .25s ease;
+    }
+
+    /* 標籤點擊動畫 */
+    @keyframes tabPop {
+      0%   { transform: scale(1); }
+      40%  { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+    .mob-tab.popping { animation: tabPop .3s ease; }
+
+    /* ── 展開內容：貼在標籤列正上方，懸浮在圖片上 ── */
+    .mob-expand {
+      display: none;
+      position: absolute;
+      left: 0; right: 0;
+      bottom: 72px;   /* 標籤列高度 */
+      z-index: 4;
+      padding: 0 20px 12px;
+      animation: expandIn .3s ease;
+    }
+    .mob-expand.open { display: block; }
+
+    @keyframes expandIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 品牌格子 */
+    .mob-expand-brands {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .mob-expand-brand {
+      background: rgba(255,255,255,0.12);
+      border: 1.5px solid rgba(255,255,255,0.22);
+      border-radius: 12px;
+      padding: 10px 8px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 5px; cursor: pointer; text-decoration: none;
+      transition: border-color .2s, background .2s;
+      height: 72px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .mob-expand-brand.active {
+      border-color: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.2);
+    }
+    .mob-expand-brand-name {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 12px; font-weight: 400;
+      color: white; letter-spacing: 0.5px;
+      text-align: center; line-height: 1.3;
+    }
+    .mob-expand-brand-badge {
+      font-size: 9px; color: rgba(255,255,255,0.65);
+      background: rgba(255,255,255,0.15);
+      padding: 2px 8px; border-radius: 20px; letter-spacing: 0.5px;
+    }
+
+    /* 文字卡片（品牌格子下方） */
+    .mob-modal-card {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+    .mob-modal-card-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 13px; font-weight: 500;
+      color: white; letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+    .mob-modal-card-desc {
+      font-size: 11px; color: rgba(255,255,255,0.72);
+      line-height: 1.85;
+    }
+
+    /* 其他 RWD */
+    nav { padding: 0 20px; }
+    .breadcrumb { padding: 12px 20px; }
+    .hero { padding: 48px 20px 44px; }
+    .value-strip { padding: 40px 20px; grid-template-columns: 1fr; }
+    .cta-banner { padding: 48px 20px; }
+    footer { padding: 40px 20px; grid-template-columns: 1fr; }
+    .footer-bottom { padding: 16px 20px; }
+  }</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-left">
+    <ul class="nav-links">
+      <li><a href="index.html">關於我們</a></li>
+      <li class="nav-dropdown">
+        <a href="#">專業服務</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-group">
+            <div class="dropdown-label">成人配鏡</div>
+            <a href="#">顧問式驗光</a>
+            <a href="#">老花多焦點</a>
+            <a href="high-myopia.html">高度近視專區</a>
+          </div>
+          <div class="dropdown-group">
+            <div class="dropdown-label">兒童配鏡</div>
+            <a href="children-myopia.html">兒童近視管理</a>
+            <a href="children-brands.html">兒童視力成長</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-dropdown">
+        <a href="#">找到適合你的眼鏡</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-group">
+            <a href="children-brands.html">兒童視力成長</a>
+            <a href="high-myopia.html">高度近視專區</a>
+            <a href="#">戶外防護 / 運動生活</a>
+            <a href="#">日常質感專區</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="#">專屬配鏡流程</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="開啟選單">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-center">
+    <a class="logo" href="index.html">
+      <svg class="logo-mark" viewBox="0 0 38 38" fill="none">
+        <path d="M6 28 Q6 10 19 8 Q32 10 32 28" stroke="var(--navy)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M10 28 Q10 16 19 14 Q28 16 28 28" stroke="var(--navy)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <circle cx="5" cy="28" r="3" fill="var(--navy)"/>
+        <circle cx="33" cy="28" r="3" fill="var(--navy)"/>
+      </svg>
+      <span class="logo-text">良美眼鏡</span>
+    </a>
+  </div>
+  <div class="nav-right">
+    <div class="nav-icons">
+      <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    </div>
+    <a class="nav-cta" href="#">立即預約</a>
+  </div>
+</nav>
+
+<!-- 手機全螢幕選單 -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-item">
+    <a class="mobile-menu-link" href="index.html">關於我們</a>
+  </div>
+  <div class="mobile-menu-item" id="mob-service">
+    <button class="mobile-menu-link">專業服務 <span class="arrow">▾</span></button>
+    <div class="mobile-submenu">
+      <div class="mobile-submenu-label">成人配鏡</div>
+      <a href="#">顧問式驗光</a>
+      <a href="#">老花多焦點</a>
+      <a href="high-myopia.html">高度近視專區</a>
+      <div class="mobile-submenu-label">兒童配鏡</div>
+      <a href="children-myopia.html">兒童近視管理</a>
+      <a href="children-brands.html">兒童視力成長</a>
+    </div>
+  </div>
+  <div class="mobile-menu-item" id="mob-find">
+    <button class="mobile-menu-link">找到適合你的眼鏡 <span class="arrow">▾</span></button>
+    <div class="mobile-submenu">
+      <a href="children-brands.html">兒童視力成長</a>
+      <a href="high-myopia.html">高度近視專區</a>
+      <a href="#">戶外防護 / 運動生活</a>
+      <a href="#">日常質感專區</a>
+    </div>
+  </div>
+  <div class="mobile-menu-item">
+    <a class="mobile-menu-link" href="#">專屬配鏡流程</a>
+  </div>
+  <a class="mobile-cta" href="#">立即預約</a>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="index.html">首頁</a> &nbsp;›&nbsp;
+  <a href="#">找到適合你的眼鏡</a> &nbsp;›&nbsp;
+  高度近視選鏡指南
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">High Myopia Guide</p>
+  <h1 class="hero-h1">你的高度近視困擾是什麼？</h1>
+  <p class="hero-sub">鏡片太厚、眼鏡太重、找不到好看的框——<br>每一種困擾都有對應的解法。選擇你最在意的，我們來一起面對。</p>
+</section>
+
+<!-- ACCORDION SECTION -->
+<section class="accordion-section">
+
+  <!-- 全寬背景圖層 -->
+  <div class="acc-bg" id="accBg">
+    <div class="acc-img-slot visible" data-slot="default">
+      <!-- 預設底圖：換圖時加入 <img src="images/high-myopia-default.jpg" alt="高度近視選鏡"> -->
+    </div>
+    <!-- 鏡片厚度 -->
+    <div class="acc-img-slot" data-slot="thick-lash">
+      <!-- 換圖：<img src="images/brand-lash.jpg" alt="LASH"> -->
+    </div>
+    <div class="acc-img-slot" data-slot="thick-999">
+      <!-- 換圖：<img src="images/brand-999.jpg" alt="999.9"> -->
+    </div>
+    <!-- 重量敏感 -->
+    <div class="acc-img-slot" data-slot="weight-kozo">
+      <!-- 換圖：<img src="images/brand-kozo.jpg" alt="KOZO"> -->
+    </div>
+    <div class="acc-img-slot" data-slot="weight-spec">
+      <!-- 換圖：<img src="images/brand-spec.jpg" alt="spec espace"> -->
+    </div>
+    <div class="acc-img-slot" data-slot="weight-eyescloud">
+      <!-- 換圖：<img src="images/brand-eyescloud.jpg" alt="EYEs CLOUD"> -->
+    </div>
+    <div class="acc-img-slot" data-slot="weight-sivimax">
+      <!-- 換圖：<img src="images/brand-sivimax.jpg" alt="sivi.max"> -->
+    </div>
+    <!-- 在意美觀 -->
+    <div class="acc-img-slot" data-slot="style-taylor">
+      <!-- 換圖：<img src="images/brand-taylor.jpg" alt="taylor with respect"> -->
+    </div>
+    <div class="acc-img-slot" data-slot="style-lash">
+      <!-- 換圖：<img src="images/brand-lash.jpg" alt="LASH"> -->
+    </div>
+    <div class="acc-img-slot" data-slot="style-999">
+      <!-- 換圖：<img src="images/brand-999.jpg" alt="999.9"> -->
+    </div>
+  </div>
+
+  <!-- 左側漸層遮罩 -->
+  <div class="acc-overlay"></div>
+
+  <!-- 文字＋accordion，疊在圖片上 -->
+  <div class="accordion-content">
+
+    <p class="accordion-section-label">選擇你最在意的困擾</p>
+
+    <!-- 1 鏡片厚度困擾型 -->
+    <div class="acc-item" data-type="thick">
+      <button class="acc-trigger" aria-expanded="false">
+        <div class="acc-trigger-left">
+          <div class="acc-icon"></div>
+          <span class="acc-trigger-name">鏡片厚度困擾型</span>
+        </div>
+        <span class="acc-trigger-sub">Lens Thickness</span>
+      </button>
+      <div class="acc-body">
+        <p class="acc-desc">鏡片邊緣很厚，戴起來像「酒瓶底」，讓人不敢拿出來戴。<br>透過正確的選框邏輯與鏡片搭配，可以讓成品薄很多。</p>
+        <div class="acc-recs">
+          <a href="#" class="acc-rec-row active" data-img="thick-lash">
+            <p class="acc-rec-name">LASH</p>
+            <span class="acc-rec-badge">台灣設計</span>
+          </a>
+          <a href="#" class="acc-rec-row" data-img="thick-999">
+            <p class="acc-rec-name">999.9</p>
+            <span class="acc-rec-badge">日本製</span>
+          </a>
+        </div>
+        <div class="acc-note"><strong>💡 良美提醒</strong><br>配鏡前我們會依你的度數試算不同折射率的預估厚度，讓你在選框前就清楚知道最終結果。</div>
+      </div>
+    </div>
+
+    <!-- 2 重量敏感型 -->
+    <div class="acc-item" data-type="weight">
+      <button class="acc-trigger" aria-expanded="false">
+        <div class="acc-trigger-left">
+          <div class="acc-icon"></div>
+          <span class="acc-trigger-name">重量敏感型</span>
+        </div>
+        <span class="acc-trigger-sub">Weight</span>
+      </button>
+      <div class="acc-body">
+        <p class="acc-desc">整天壓著鼻樑，下午開始頭昏、鼻子紅痕，摘下來才算真正休息。<br>鏡框材質、鏡片重量、鼻托三個地方同時改善，效果最明顯。</p>
+        <div class="acc-recs">
+          <a href="#" class="acc-rec-row active" data-img="weight-kozo">
+            <p class="acc-rec-name">KOZO</p>
+            <span class="acc-rec-badge">日本製</span>
+          </a>
+          <a href="#" class="acc-rec-row" data-img="weight-spec">
+            <p class="acc-rec-name">spec ēspace</p>
+            <span class="acc-rec-badge">法國設計</span>
+          </a>
+          <a href="#" class="acc-rec-row" data-img="weight-eyescloud">
+            <p class="acc-rec-name">EYEs CLOUD</p>
+            <span class="acc-rec-badge">台灣設計</span>
+          </a>
+          <a href="#" class="acc-rec-row" data-img="weight-sivimax">
+            <p class="acc-rec-name">sivi.max</p>
+            <span class="acc-rec-badge">台灣設計</span>
+          </a>
+        </div>
+        <div class="acc-note"><strong>💡 良美提醒</strong><br>來店時我們會讓你試戴不同材質的鏡框，親自感受重量差異，再結合你的鼻型做鼻托細調。</div>
+      </div>
+    </div>
+
+    <!-- 3 在意美觀型 -->
+    <div class="acc-item" data-type="style">
+      <button class="acc-trigger" aria-expanded="false">
+        <div class="acc-trigger-left">
+          <div class="acc-icon"></div>
+          <span class="acc-trigger-name">在意美觀型</span>
+        </div>
+        <span class="acc-trigger-sub">Style</span>
+      </button>
+      <div class="acc-body">
+        <p class="acc-desc">想戴好看的眼鏡，但高度數讓選擇變少，細框配厚片更突兀。<br>選對框型與鏡片組合，高度數也能好看，甚至更有個性。</p>
+        <div class="acc-recs">
+          <a href="#" class="acc-rec-row active" data-img="style-taylor">
+            <p class="acc-rec-name">taylor with respect</p>
+            <span class="acc-rec-badge">丹麥設計</span>
+          </a>
+          <a href="#" class="acc-rec-row" data-img="style-lash">
+            <p class="acc-rec-name">LASH</p>
+            <span class="acc-rec-badge">台灣設計</span>
+          </a>
+          <a href="#" class="acc-rec-row" data-img="style-999">
+            <p class="acc-rec-name">999.9</p>
+            <span class="acc-rec-badge">日本製</span>
+          </a>
+        </div>
+        <div class="acc-note"><strong>💡 良美提醒</strong><br>配鏡時我們會依你的度數、瞳距與臉型預覽鏡片在框內的成品比例，確認好看才出發。</div>
+      </div>
+    </div>
+
+  </div><!-- /accordion-content -->
+
+  <!-- 手機版標籤列（懸浮在圖片底部，≤640px 顯示） -->
+  <div class="mob-tabs" id="mobTabs">
+    <button class="mob-tab" data-type="thick">
+      <span class="mob-tab-icon"></span>
+      <span class="mob-tab-text">鏡片厚度困擾型</span>
+    </button>
+    <button class="mob-tab" data-type="weight">
+      <span class="mob-tab-icon"></span>
+      <span class="mob-tab-text">重量敏感型</span>
+    </button>
+    <button class="mob-tab" data-type="style">
+      <span class="mob-tab-icon"></span>
+      <span class="mob-tab-text">在意美觀型</span>
+    </button>
+  </div>
+
+  <!-- 手機版展開內容（懸浮在圖片上，標籤正上方） -->
+  <div class="mob-expand" id="mobExpand">
+    <div class="mob-expand-brands" id="mobExpandBrands"></div>
+    <div class="mob-modal-card" id="mobExpandCard"></div>
+  </div>
+
+</section>
+
+<!-- VALUE STRIP -->
+<div class="value-strip">
+  <div class="value-item">
+    <div class="value-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+    <div class="value-text">
+      <p class="value-title">厚度預先試算</p>
+      <p class="value-desc">選框前依度數估算成品厚度<br>不踩雷</p>
+    </div>
+  </div>
+  <div class="value-item">
+    <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+    <div class="value-text">
+      <p class="value-title">配重整體評估</p>
+      <p class="value-desc">鏡框＋鏡片重量同時考量<br>找到最舒適的平衡</p>
+    </div>
+  </div>
+  <div class="value-item">
+    <div class="value-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+    <div class="value-text">
+      <p class="value-title">光學中心精準定位</p>
+      <p class="value-desc">正確切割位置<br>兼顧薄度與視覺清晰</p>
+    </div>
+  </div>
+  <div class="value-item">
+    <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+    <div class="value-text">
+      <p class="value-title">整體美觀把關</p>
+      <p class="value-desc">臉型、度數、鏡框三方平衡<br>高度數也能好看</p>
+    </div>
+  </div>
+</div>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <div>
+    <h2 class="cta-banner-title">還是不確定怎麼選？</h2>
+    <p class="cta-banner-sub">
+      帶著你的舊眼鏡來良美，我們先幫你分析現在的問題出在哪裡，<br>
+      再一起找到真正符合你生活的解法。
+    </p>
+  </div>
+  <div class="cta-btns">
+    <a href="#" class="btn-primary">立即預約</a>
+    <a href="index.html" class="btn-outline">回到首頁</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <a class="logo" href="index.html" style="margin-bottom:16px;display:inline-flex;">
+      <svg width="28" height="28" viewBox="0 0 38 38" fill="none">
+        <path d="M6 28 Q6 10 19 8 Q32 10 32 28" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M10 28 Q10 16 19 14 Q28 16 28 28" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <circle cx="5" cy="28" r="3" fill="white"/><circle cx="33" cy="28" r="3" fill="white"/>
+      </svg>
+      <span class="logo-text">良美眼鏡</span>
+    </a>
+    <p class="footer-tagline">台南永康・兒童近視管理・顧問式驗光<br>從了解您的用眼習慣，到精準驗配一隻好眼鏡。</p>
+  </div>
+  <div>
+    <p class="footer-heading">SERVICES</p>
+    <ul class="footer-links">
+      <li><a href="children-myopia.html">兒童近視管理</a></li>
+      <li><a href="children-brands.html">兒童視力成長</a></li>
+      <li><a href="#">顧問式驗光</a></li>
+      <li><a href="#">老花多焦配鏡</a></li>
+      <li><a href="high-myopia.html">高度近視眼鏡</a></li>
+    </ul>
+  </div>
+  <div>
+    <p class="footer-heading">CONTACT</p>
+    <div class="footer-info">
+      台南市永康區永大路二段189號<br><br>
+      週一〜週六　10:00 – 21:00<br>
+      週日　12:00 – 19:00<br><br>
+      <a href="https://share.google/OFnrIagYW2B9vKdJe" target="_blank" rel="noopener">📍 Google Maps</a><br>
+      <a href="tel:062727867">📞 06-2727867</a>
+    </div>
+  </div>
+</footer>
+<div class="footer-bottom">
+  © 創立於1993年 · 台南永康良美眼鏡 Liangmei Eyewear
+</div>
+
+<script>
+// ════════════════════════════════
+// 共用資料
+// ════════════════════════════════
+const typeData = {
+  thick: {
+    label: 'Lens Thickness',
+    name: '鏡片厚度困擾型',
+    desc: '鏡片邊緣很厚，戴起來像「酒瓶底」，讓人不敢拿出來戴。\n透過正確的選框邏輯與鏡片搭配，可以讓成品薄很多。',
+    note: '配鏡前我們會依你的度數試算不同折射率的預估厚度，讓你在選框前就清楚知道最終結果。',
+    brands: [
+      { name: 'LASH',  badge: '台灣設計', img: 'thick-lash' },
+      { name: '999.9', badge: '日本製',   img: 'thick-999'  },
+    ]
+  },
+  weight: {
+    label: 'Weight',
+    name: '重量敏感型',
+    desc: '整天壓著鼻樑，下午開始頭昏、鼻子紅痕，摘下來才算真正休息。\n鏡框材質、鏡片重量、鼻托三個地方同時改善，效果最明顯。',
+    note: '來店時我們會讓你試戴不同材質的鏡框，親自感受重量差異，再結合你的鼻型做鼻托細調。',
+    brands: [
+      { name: 'KOZO',        badge: '日本製',   img: 'weight-kozo'      },
+      { name: 'spec ēspace', badge: '法國設計', img: 'weight-spec'      },
+      { name: 'EYEs CLOUD',  badge: '台灣設計', img: 'weight-eyescloud' },
+      { name: 'sivi.max',    badge: '台灣設計', img: 'weight-sivimax'   },
+    ]
+  },
+  style: {
+    label: 'Style',
+    name: '在意美觀型',
+    desc: '想戴好看的眼鏡，但高度數讓選擇變少，細框配厚片更突兀。\n選對框型與鏡片組合，高度數也能好看，甚至更有個性。',
+    note: '配鏡時我們會依你的度數、瞳距與臉型預覽鏡片在框內的成品比例，確認好看才出發。',
+    brands: [
+      { name: 'taylor with respect', badge: '丹麥設計', img: 'style-taylor' },
+      { name: 'LASH',                badge: '台灣設計', img: 'style-lash'   },
+      { name: '999.9',               badge: '日本製',   img: 'style-999'    },
+    ]
+  }
+};
+
+const typeOrder = ['thick', 'weight', 'style'];
+
+// ════════════════════════════════
+// 桌機版 Accordion
+// ════════════════════════════════
+const desktopImgSlots = document.querySelectorAll('.acc-img-slot');
+
+function showDesktopImg(slot) {
+  desktopImgSlots.forEach(s => s.classList.remove('visible'));
+  const t = document.querySelector(`.acc-img-slot[data-slot="${slot}"]`);
+  if (t) t.classList.add('visible');
+  else document.querySelector('.acc-img-slot[data-slot="default"]').classList.add('visible');
+}
+
+document.querySelectorAll('.acc-item').forEach(item => {
+  item.querySelector('.acc-trigger').addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.acc-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.acc-trigger').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      item.querySelector('.acc-trigger').setAttribute('aria-expanded', 'true');
+      const first = item.querySelector('.acc-rec-row');
+      if (first) showDesktopImg(first.dataset.img);
+    } else {
+      showDesktopImg('default');
+    }
+  });
+});
+
+document.querySelectorAll('.acc-rec-row').forEach(card => {
+  card.addEventListener('click', e => {
+    e.preventDefault();
+    card.closest('.acc-recs').querySelectorAll('.acc-rec-row').forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+    showDesktopImg(card.dataset.img);
+  });
+});
+
+// ════════════════════════════════
+// 手機版 in-section expand
+// ════════════════════════════════
+const mobExpand       = document.getElementById('mobExpand');
+const mobExpandBrands = document.getElementById('mobExpandBrands');
+const mobExpandCard   = document.getElementById('mobExpandCard');
+const mobTabs         = document.querySelectorAll('.mob-tab');
+let currentMobType    = null;
+
+function showMobImg(slot) {
+  desktopImgSlots.forEach(s => s.classList.remove('visible'));
+  const t = document.querySelector(`.acc-img-slot[data-slot="${slot}"]`);
+  if (t) t.classList.add('visible');
+  else document.querySelector('.acc-img-slot[data-slot="default"]').classList.add('visible');
+}
+
+function renderExpand(type, brandIdx) {
+  const d = typeData[type];
+
+  // 品牌格子
+  mobExpandBrands.innerHTML = d.brands.map((b, i) => `
+    <a href="#" class="mob-expand-brand ${i === brandIdx ? 'active' : ''}" data-img="${b.img}">
+      <span class="mob-expand-brand-name">${b.name}</span>
+      <span class="mob-expand-brand-badge">${b.badge}</span>
+    </a>
+  `).join('');
+
+  mobExpandBrands.querySelectorAll('.mob-expand-brand').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      mobExpandBrands.querySelectorAll('.mob-expand-brand').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      showMobImg(btn.dataset.img);
+    });
+  });
+
+  // 文字卡片
+  mobExpandCard.innerHTML = `
+    <p class="mob-modal-card-title">${d.name}</p>
+    <p class="mob-modal-card-desc">${d.desc.replace(/\n/g, '<br>')}</p>
+  `;
+
+  showMobImg(d.brands[brandIdx].img);
+}
+
+mobTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const type = tab.dataset.type;
+
+    // 標籤彈跳動畫
+    tab.classList.remove('popping');
+    void tab.offsetWidth; // reflow
+    tab.classList.add('popping');
+    tab.addEventListener('animationend', () => tab.classList.remove('popping'), { once: true });
+
+    if (currentMobType === type) {
+      // 再點同一個 → 收起
+      mobExpand.classList.remove('open');
+      tab.classList.remove('active');
+      currentMobType = null;
+      showMobImg('default');
+      return;
+    }
+
+    mobTabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    currentMobType = type;
+
+    renderExpand(type, 0);
+    mobExpand.classList.add('open');
+  });
+});
+
+// ── 漢堡選單 ──
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+['mob-service', 'mob-find'].forEach(id => {
+  const item = document.getElementById(id);
+  if (!item) return;
+  item.querySelector('button').addEventListener('click', () => item.classList.toggle('open'));
+});
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+</script>
+</script>
+</body>
+</html>
