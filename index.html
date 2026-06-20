@@ -84,244 +84,70 @@
     height: 64px;
     border-bottom: 1px solid rgba(45,58,74,0.1);
   }
-
-  .nav-left {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-  }
-
-  .nav-center {
-    display: flex;
-    justify-content: center;
-  }
-
-  .nav-right {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 16px;
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-  }
-
+  .nav-left  { display: flex; align-items: center; gap: 32px; }
+  .nav-center { display: flex; justify-content: center; }
+  .nav-right  { display: flex; align-items: center; justify-content: flex-end; gap: 16px; }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
   .logo-mark { width: 38px; height: 38px; }
-
-  .logo-text {
-    font-family: 'Noto Serif TC', serif;
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--navy);
-    letter-spacing: 2px;
-  }
-
-  .nav-links {
-    display: none;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-size: 14px;
-    color: var(--navy);
-    text-decoration: none;
-    letter-spacing: 1px;
-    opacity: 0.9;
-    transition: opacity 0.2s;
-  }
-
+  .logo-text { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 500; color: var(--navy); letter-spacing: 2px; }
+  .nav-links { display: none; list-style: none; }
+  .nav-links a { font-size: 14px; color: var(--navy); text-decoration: none; letter-spacing: 1px; opacity: 0.9; transition: opacity 0.2s; }
   .nav-links a:hover { opacity: 1; }
-
   .nav-dropdown { position: relative; }
-
-  .nav-dropdown > a::after {
-    content: ' ▾';
-    font-size: 10px;
-  }
-
+  .nav-dropdown > a::after { content: ' ▾'; font-size: 10px; }
   .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: white;
-    border-radius: 12px;
-    padding: 20px 28px;
-    min-width: 280px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-    margin-top: 0;
-    padding-top: 12px;
+    display: none; position: absolute; top: 100%; left: 50%;
+    transform: translateX(-50%); background: white; border-radius: 12px;
+    padding: 12px 28px 20px; min-width: 280px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12); margin-top: 0;
   }
-
-  /* dropdown hover 停用，改用 mobile-menu */
-
   .dropdown-group { display: flex; flex-direction: column; gap: 8px; }
-
-  .dropdown-label {
-    font-size: 12px;
-    color: var(--accent-red);
-    letter-spacing: 1px;
-    font-weight: 500;
-    margin-bottom: 4px;
-  }
-
-  .dropdown-menu a {
-    font-size: 13px;
-    color: var(--navy);
-    text-decoration: none;
-    opacity: 1;
-    line-height: 1.8;
-  }
-
+  .dropdown-label { font-size: 12px; color: var(--accent-red); letter-spacing: 1px; font-weight: 500; margin-bottom: 4px; }
+  .dropdown-menu a { font-size: 13px; color: var(--navy); text-decoration: none; opacity: 1; line-height: 1.8; }
   .dropdown-menu a:hover { color: var(--accent-red); }
-
   .nav-cta {
-    background: transparent;
-    border: 1.5px solid var(--navy);
-    color: var(--navy) !important;
-    padding: 7px 20px;
-    border-radius: 24px;
-    font-size: 14px !important;
-    transition: all 0.2s !important;
-    cursor: pointer;
-    text-decoration: none;
-    letter-spacing: 1px;
+    background: transparent; border: 1.5px solid var(--navy);
+    color: var(--navy) !important; padding: 7px 20px; border-radius: 24px;
+    font-size: 14px !important; transition: all 0.2s !important;
+    cursor: pointer; text-decoration: none; letter-spacing: 1px;
   }
-
-  .nav-cta:hover {
-    background: var(--navy) !important;
-    color: var(--white) !important;
-    opacity: 1 !important;
-  }
-
-  .nav-icons {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-  }
-
-  .nav-icons svg {
-    width: 20px; height: 20px;
-    stroke: var(--navy);
-    fill: none;
-    cursor: pointer;
-    opacity: 0.7;
-  }
-
-  /* 漢堡按鈕 — 所有裝置顯示 */
+  .nav-cta:hover { background: var(--navy) !important; color: var(--white) !important; opacity: 1 !important; }
+  .nav-icons { display: flex; gap: 16px; align-items: center; }
+  .nav-icons a { display: flex; align-items: center; opacity: 0.7; transition: opacity 0.2s; }
+  .nav-icons a:hover { opacity: 1; }
+  .nav-icons svg { width: 20px; height: 20px; cursor: pointer; }
   .hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    width: 32px; height: 32px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
-    z-index: 200;
+    display: flex; flex-direction: column; justify-content: center;
+    gap: 5px; width: 32px; height: 32px;
+    background: none; border: none; cursor: pointer; padding: 4px; z-index: 200;
   }
-
-  .hamburger span {
-    display: block;
-    width: 22px; height: 2px;
-    background: var(--navy);
-    border-radius: 2px;
-    transition: all 0.3s;
-    transform-origin: center;
-  }
-
-  /* 漢堡動畫：變 X */
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--navy); border-radius: 2px; transition: all 0.3s; transform-origin: center; }
   .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
   .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-  /* 手機全螢幕選單 */
   .mobile-menu {
-    display: none;
-    position: fixed;
-    top: 64px; left: 0; right: 0; bottom: 0;
-    background: var(--salmon-bg);
-    z-index: 99;
-    overflow-y: auto;
-    padding: 32px 32px 48px;
-    flex-direction: column;
-    gap: 0;
+    display: none; position: fixed; top: 64px; left: 0; right: 0; bottom: 0;
+    background: var(--salmon-bg); z-index: 99; overflow-y: auto;
+    padding: 32px 32px 48px; flex-direction: column; gap: 0;
   }
-
   .mobile-menu.open { display: flex; }
-
-  .mobile-menu-item {
-    border-bottom: 1px solid rgba(45,58,74,0.1);
-  }
-
+  .mobile-menu-item { border-bottom: 1px solid rgba(45,58,74,0.1); }
   .mobile-menu-link {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 0;
-    font-size: 17px;
-    color: var(--navy);
-    text-decoration: none;
-    letter-spacing: 1px;
-    background: none;
-    border: none;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 0; font-size: 17px; color: var(--navy);
+    text-decoration: none; letter-spacing: 1px;
+    background: none; border: none; width: 100%; text-align: left; cursor: pointer;
   }
-
-  .mobile-menu-link .arrow {
-    font-size: 12px;
-    transition: transform 0.2s;
-    opacity: 0.6;
-  }
-
-  .mobile-menu-item.open .mobile-menu-link .arrow {
-    transform: rotate(180deg);
-  }
-
-  .mobile-submenu {
-    display: none;
-    padding: 4px 0 16px 16px;
-    flex-direction: column;
-    gap: 0;
-  }
-
+  .mobile-menu-link .arrow { font-size: 12px; transition: transform 0.2s; opacity: 0.6; }
+  .mobile-menu-item.open .mobile-menu-link .arrow { transform: rotate(180deg); }
+  .mobile-submenu { display: none; padding: 4px 0 16px 16px; flex-direction: column; gap: 0; }
   .mobile-menu-item.open .mobile-submenu { display: flex; }
-
-  .mobile-submenu-label {
-    font-size: 11px;
-    color: var(--salmon);
-    letter-spacing: 2px;
-    margin: 12px 0 6px;
-  }
-
-  .mobile-submenu a {
-    font-size: 15px;
-    color: var(--navy-mid);
-    text-decoration: none;
-    padding: 8px 0;
-    letter-spacing: 0.5px;
-  }
-
+  .mobile-submenu-label { font-size: 11px; color: var(--salmon); letter-spacing: 2px; margin: 12px 0 6px; }
+  .mobile-submenu a { font-size: 15px; color: var(--navy-mid); text-decoration: none; padding: 8px 0; letter-spacing: 0.5px; }
   .mobile-cta {
-    margin-top: 32px;
-    display: block;
-    text-align: center;
-    background: var(--salmon);
-    color: white !important;
-    padding: 14px;
-    border-radius: 30px;
-    font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-decoration: none;
+    margin-top: 32px; display: block; text-align: center;
+    background: var(--salmon); color: white !important;
+    padding: 14px; border-radius: 30px; font-size: 15px; font-weight: 500; letter-spacing: 1px; text-decoration: none;
   }
 
   .hero-sub-tagline {
@@ -739,70 +565,34 @@
   footer {
     background: var(--navy);
     color: white;
-    padding: 48px;
+    padding: 64px 48px;
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-columns: 1.8fr 1fr 1fr 1fr;
     gap: 48px;
+    border-top: 1px solid rgba(255,255,255,0.06);
   }
-
-  .footer-brand .logo-text { color: white; }
-
-  .footer-tagline {
-    font-size: 13px;
-    color: rgba(255,255,255,0.55);
-    line-height: 2;
-    margin-top: 16px;
-    letter-spacing: 0.5px;
-  }
-
-  .footer-heading {
-    font-size: 12px;
-    letter-spacing: 2px;
-    color: rgba(255,255,255,0.4);
-    margin-bottom: 16px;
-    font-weight: 400;
-  }
-
-  .footer-links {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .footer-links a {
-    font-size: 13px;
-    color: rgba(255,255,255,0.7);
-    text-decoration: none;
-    letter-spacing: 0.5px;
-    transition: color 0.2s;
-  }
-
-  .footer-links a:hover { color: white; }
-
-  .footer-info {
-    font-size: 13px;
-    color: rgba(255,255,255,0.6);
-    line-height: 2.2;
-  }
-
-  .footer-bottom {
-    background: var(--navy);
-    padding: 16px 48px;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    font-size: 12px;
-    color: rgba(255,255,255,0.3);
-    text-align: center;
-    letter-spacing: 0.5px;
-  }
+  .footer-we-label { font-size: 10px; letter-spacing: 3px; color: rgba(255,255,255,0.3); margin-bottom: 20px; font-weight: 400; }
+  .footer-belief { font-family: 'Noto Serif TC', serif; font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.9); letter-spacing: 2px; line-height: 1.5; margin-bottom: 12px; }
+  .footer-tagline { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 2; letter-spacing: 0.5px; }
+  .footer-heading { font-size: 10px; letter-spacing: 3px; color: rgba(255,255,255,0.3); margin-bottom: 20px; font-weight: 400; }
+  .footer-menu-group { display: flex; flex-direction: column; gap: 20px; }
+  .footer-menu-section-title { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.9); letter-spacing: 0.5px; margin-bottom: 8px; }
+  .footer-menu-sub { list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 10px; }
+  .footer-menu-sub a { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.5); text-decoration: none; letter-spacing: 0.5px; transition: color 0.2s; }
+  .footer-menu-sub a:hover { color: white; }
+  .footer-info { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 2.2; }
+  .footer-info a { color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+  .footer-info a:hover { color: white; }
+  .footer-bottom { background: var(--navy); padding: 16px 48px; border-top: 1px solid rgba(255,255,255,0.06); font-size: 11px; color: rgba(255,255,255,0.25); text-align: center; letter-spacing: 1px; }
 
   /* ══════════════════════════════
      RWD — TABLET (≤1024px)
   ══════════════════════════════ */
   @media (max-width: 1024px) {
     nav { padding: 0 32px; }
-
-    .nav-links { gap: 24px; }
+    .nav-links { display: none; }
+    .nav-right { display: none; }
+    .nav-icons { display: none; }
 
     .services {
       grid-template-columns: repeat(2, 1fr);
@@ -972,10 +762,9 @@
     /* FOOTER */
     footer {
       grid-template-columns: 1fr;
-      padding: 40px 20px;
+      padding: 48px 20px;
       gap: 32px;
     }
-
     .footer-bottom { padding: 16px 20px; }
   }
 </style>
@@ -984,24 +773,21 @@
 
 <!-- NAV -->
 <nav>
-  <!-- 左：選單連結 + 漢堡 -->
   <div class="nav-left">
     <ul class="nav-links">
-      <li><a href="#">關於我們</a></li>
+      <li><a href="about.html">關於我們</a></li>
       <li class="nav-dropdown">
-        <a href="#">依視覺需求找解決方案</a>
+        <a href="#">認識你的視覺需求</a>
         <div class="dropdown-menu">
           <div class="dropdown-group">
-            <div class="dropdown-label">成人配鏡</div>
-            <a href="#">開車與眩光問題</a>
-            <a href="#">長時間電腦工作</a>
-            <a href="#">老花多焦點</a>
-            <a href="#">高度近視專區</a>
+            <div class="dropdown-label">Kids</div>
+            <a href="children-myopia.html">孩子的視力發展</a>
           </div>
           <div class="dropdown-group">
-            <div class="dropdown-label">兒童配鏡</div>
-            <a href="#">兒童近視管理</a>
-            <a href="#">Kids 視力健康紀錄</a>
+            <div class="dropdown-label">Adult</div>
+            <a href="digital.html">數位生活與近距離用眼</a>
+            <a href="driving.html">駕駛與夜間視覺</a>
+            <a href="outdoor.html">戶外活動與光線防護</a>
           </div>
         </div>
       </li>
@@ -1009,38 +795,43 @@
         <a href="#">找到適合你的鏡框</a>
         <div class="dropdown-menu">
           <div class="dropdown-group">
-            <a href="#">兒童/青少年視力專區</a>
-            <a href="#">高度近視友善</a>
-            <a href="#">戶外防護 / 運動生活</a>
-            <a href="#">日常穿搭質感</a>
+            <div class="dropdown-label">Kids</div>
+            <a href="children-brands.html">正在成長中的孩子</a>
+          </div>
+          <div class="dropdown-group">
+            <div class="dropdown-label">Adult</div>
+            <a href="high-myopia.html">為高度近視設計</a>
+            <a href="comfort.html">重視舒適配戴</a>
+            <a href="sunglasses.html">經常處於戶外環境</a>
+            <a href="frame.html">喜愛質感穿搭</a>
           </div>
         </div>
       </li>
-      <li><a href="#">專屬配鏡流程</a></li>
+      <li><a href="process.html">專屬配鏡流程</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="開啟選單">
       <span></span><span></span><span></span>
     </button>
   </div>
-
-  <!-- 中：Logo -->
   <div class="nav-center">
-    <a class="logo" href="#">
+    <a class="logo" href="index.html">
       <svg class="logo-mark" viewBox="0 0 38 38" fill="none">
         <path d="M6 28 Q6 10 19 8 Q32 10 32 28" stroke="var(--navy)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
         <path d="M10 28 Q10 16 19 14 Q28 16 28 28" stroke="var(--navy)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
         <circle cx="5" cy="28" r="3" fill="var(--navy)"/>
         <circle cx="33" cy="28" r="3" fill="var(--navy)"/>
       </svg>
-      <span class="logo-text">良美眼鏡</span>
+      <span class="logo-text">良美眼鏡｜<span style="color:var(--salmon);">良美驗光所</span></span>
     </a>
   </div>
-
-  <!-- 右：Icon + CTA -->
   <div class="nav-right">
     <div class="nav-icons">
-      <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      <svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <a href="#" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="var(--navy)" stroke="none" style="width:20px;height:20px;"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="#" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="1.8" style="width:20px;height:20px;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="var(--navy)" stroke="none"/></svg>
+      </a>
     </div>
     <a class="nav-cta" href="#">立即預約</a>
   </div>
@@ -1049,35 +840,33 @@
 <!-- 手機全螢幕選單 -->
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-menu-item">
-    <a class="mobile-menu-link" href="#">關於我們</a>
+    <a class="mobile-menu-link" href="about.html">關於我們</a>
   </div>
-  <div class="mobile-menu-item" id="mob-service">
-    <button class="mobile-menu-link">
-      依需求找解決方案 <span class="arrow">▾</span>
-    </button>
+  <div class="mobile-menu-item" id="mob-learn">
+    <button class="mobile-menu-link">認識你的視覺需求 <span class="arrow">▾</span></button>
     <div class="mobile-submenu">
-      <div class="mobile-submenu-label">成人配鏡</div>
-      <a href="#">長時間電腦工作</a>
-      <a href="#">開車與眩光問題</a>
-      <a href="#">戶外運動</a>
-      <a href="#">老花多焦點</a>
-      <a href="#">高度近視</a>
-      <div class="mobile-submenu-label">兒童配鏡</div>
-      <a href="#">兒童視力管理</a>
-      <a href="#">Kids 視力健康紀錄</a>
+      <div class="mobile-submenu-label">Kids</div>
+      <a href="children-myopia.html">孩子的視力發展</a>
+      <div class="mobile-submenu-label">Adult</div>
+      <a href="digital.html">數位生活與近距離用眼</a>
+      <a href="driving.html">駕駛與夜間視覺</a>
+      <a href="outdoor.html">戶外活動與光線防護</a>
     </div>
   </div>
-  <div class="mobile-menu-item" id="mob-brand">
-    <button class="mobile-menu-link">找到適合你的眼鏡 <span class="arrow">▾</span></button>
+  <div class="mobile-menu-item" id="mob-find">
+    <button class="mobile-menu-link">找到適合你的鏡框 <span class="arrow">▾</span></button>
     <div class="mobile-submenu">
-      <a href="#">兒童視力成長</a>
-      <a href="#">高度近視專區</a>
-      <a href="#">戶外防護 / 運動生活</a>
-      <a href="#">日常質感專區</a>
+      <div class="mobile-submenu-label">Kids</div>
+      <a href="children-brands.html">正在成長中的孩子</a>
+      <div class="mobile-submenu-label">Adult</div>
+      <a href="high-myopia.html">為高度近視設計</a>
+      <a href="comfort.html">重視舒適配戴</a>
+      <a href="sunglasses.html">經常處於戶外環境</a>
+      <a href="frame.html">喜愛質感穿搭</a>
     </div>
   </div>
   <div class="mobile-menu-item">
-    <a class="mobile-menu-link" href="#">專屬配鏡流程</a>
+    <a class="mobile-menu-link" href="process.html">專屬配鏡流程</a>
   </div>
   <a class="mobile-cta" href="#">立即預約</a>
 </div>
@@ -1279,69 +1068,71 @@
 </section>
 
 <!-- FOOTER -->
+<!-- FOOTER -->
 <footer>
-  <div class="footer-brand">
-    <div class="logo">
-      <svg width="30" height="30" viewBox="0 0 38 38" fill="none">
-        <path d="M6 28 Q6 10 19 8 Q32 10 32 28" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-        <path d="M10 28 Q10 16 19 14 Q28 16 28 28" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-        <circle cx="5" cy="28" r="3" fill="white"/>
-        <circle cx="33" cy="28" r="3" fill="white"/>
-      </svg>
-      <span class="logo-text">良美眼鏡</span>
+  <div>
+    <p class="footer-we-label">WE</p>
+    <p class="footer-belief">先理解你，再提供方案。</p>
+    <p class="footer-tagline">每個人的生活方式都不同，<br>值得被仔細理解。<br>因為好的眼鏡，從來不只是度數而已。</p>
+  </div>
+  <div>
+    <p class="footer-heading">MENU</p>
+    <div class="footer-menu-group">
+      <div>
+        <p class="footer-menu-section-title">認識你的視覺需求</p>
+        <ul class="footer-menu-sub">
+          <li><a href="children-myopia.html">孩子的視力發展</a></li>
+          <li><a href="digital.html">數位生活與近距離用眼</a></li>
+          <li><a href="driving.html">駕駛與夜間視覺</a></li>
+          <li><a href="outdoor.html">戶外活動與光線防護</a></li>
+        </ul>
+      </div>
     </div>
-    <p class="footer-tagline">
-      台南永康・兒童近視管理・顧問式驗光<br>
-      從了解您的用眼習慣<br>到精準驗配一隻好眼鏡。
-    </p>
   </div>
   <div>
-    <p class="footer-heading">SERVICES</p>
-    <ul class="footer-links">
-      <li><a href="#">顧問式驗光</a></li>
-      <li><a href="#">兒童近視管理</a></li>
-      <li><a href="#">老花多焦配鏡</a></li>
-      <li><a href="#">高度近視眼鏡</a></li>
-      <li><a href="#">Kids 視力健康紀錄</a></li>
-    </ul>
+    <p class="footer-heading">&nbsp;</p>
+    <div class="footer-menu-group">
+      <div>
+        <p class="footer-menu-section-title">找到適合你的鏡框</p>
+        <ul class="footer-menu-sub">
+          <li><a href="children-brands.html">正在成長中的孩子</a></li>
+          <li><a href="high-myopia.html">為高度近視設計</a></li>
+          <li><a href="comfort.html">重視舒適配戴</a></li>
+          <li><a href="sunglasses.html">經常處於戶外環境</a></li>
+          <li><a href="frame.html">喜愛質感穿搭</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
   <div>
-    <p class="footer-heading">CONTACT</p>
+    <p class="footer-heading">COME SAY HELLO</p>
     <div class="footer-info">
       台南市永康區永大路二段189號<br>
-      ___________________________<br><br>
+      <a href="https://share.google/OFnrIagYW2B9vKdJe" target="_blank" rel="noopener">Google Maps</a><br>
+      <a href="tel:062727867">06-2727867</a><br><br>
       週一〜週六　10:00 – 21:00<br>
-      週日　12:00 – 19:00<br><br>
-      📍 <a href="https://share.google/OFnrIagYW2B9vKdJe" target="_blank" style="color:rgba(255,255,255,0.6); text-decoration:underline;">Google Maps</a><br>
-      📞 <a href="tel:0627272867" style="color:rgba(255,255,255,0.6); text-decoration:underline;">06-2727867</a>
+      週日　12:00 – 19:00<br>
+      公休日　每月最後一個週日
     </div>
   </div>
 </footer>
 <div class="footer-bottom">
-  © 創立於1993年 · 台南永康良美眼鏡 Liangmei Eyewear
+  版權所有 © 2026 良美眼鏡 Liang Mei Optical Store
 </div>
 
 <script>
-  // 漢堡選單
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
-
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('open');
     mobileMenu.classList.toggle('open');
     document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
   });
-
-  // 手機子選單展開
-  ['mob-service', 'mob-brand'].forEach(id => {
+  ['mob-learn', 'mob-find'].forEach(id => {
     const item = document.getElementById(id);
     if (!item) return;
-    item.querySelector('button').addEventListener('click', () => {
-      item.classList.toggle('open');
-    });
+    item.querySelector('button').addEventListener('click', () => item.classList.toggle('open'));
   });
-
-  // 點選連結後關閉選單
   document.querySelectorAll('.mobile-menu a').forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('open');
