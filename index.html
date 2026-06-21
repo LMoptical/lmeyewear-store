@@ -175,32 +175,29 @@
     padding-top: 64px;
   }
 
-  /* 影片／圖片背景層 */
+  /* 影片背景層 */
   .hero-bg {
     position: absolute;
     inset: 0;
-    background: var(--salmon-bg);
-    /* 之後換影片時移除 background，改用 <video> */
+    overflow: hidden;
   }
 
-  /* 亞麻紋理疊層 */
-  .hero-bg::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.055'/%3E%3C/svg%3E");
-    background-size: 200px 200px;
+  .hero-bg video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
-  /* 底部漸層：讓文字區域更清晰 */
+  /* 遮罩：讓文字清晰，保留影片氛圍 */
   .hero-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
-      to bottom,
-      rgba(245,239,224,0.6) 0%,
-      rgba(245,239,224,0.2) 45%,
-      transparent 100%
+      135deg,
+      rgba(247,243,238,0.72) 0%,
+      rgba(247,243,238,0.40) 50%,
+      rgba(247,243,238,0.10) 100%
     );
   }
 
@@ -215,10 +212,11 @@
   .hero-sub-tagline {
     font-size: 13px;
     letter-spacing: 2px;
-    color: var(--navy-mid);
+    color: var(--navy);
     font-weight: 400;
     margin-bottom: 20px;
-    line-height: 1.8;
+    line-height: 2;
+    opacity: 0.85;
   }
 
   .hero-tagline {
@@ -873,13 +871,17 @@
 
 <!-- HERO -->
 <section class="hero">
-  <!-- 背景層：換影片時在此加入 <video autoplay muted loop playsinline><source src="hero.mp4" type="video/mp4"></video> -->
-  <div class="hero-bg"></div>
+  <!-- 影片背景 -->
+  <div class="hero-bg">
+    <video autoplay muted loop playsinline>
+      <source src="images/hero.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
-    <p class="hero-sub-tagline">閱讀、電腦工作、開車、運動，不同的用眼方式，需要不同的配鏡考量。</p>
-    <h1 class="hero-tagline">讓眼鏡真正符合您的生活。</h1>
+    <p class="hero-sub-tagline">閱讀、電腦工作、開車、運動，<br>不同的用眼方式，需要不同的配鏡考量。</p>
+    <h1 class="hero-tagline">讓眼鏡真正<br>符合你的生活。</h1>
   </div>
 </section>
 
