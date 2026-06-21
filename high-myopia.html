@@ -370,16 +370,34 @@
   .btn-outline{background:transparent;color:var(--graphite);border:1.5px solid var(--graphite);padding:14px 36px;border-radius:30px;font-size:14px;letter-spacing:1px;text-decoration:none;transition:opacity .2s;white-space:nowrap;}
   .btn-outline:hover{opacity:.7;}
 
-  /* ── FOOTER ── */
-  footer{background:var(--graphite);color:white;padding:48px 64px;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;border-top:1px solid rgba(255,255,255,.05);}
-  .footer-tagline{font-size:13px;color:rgba(255,255,255,.5);line-height:2;margin-top:16px;}
-  .footer-heading{font-size:11px;letter-spacing:2px;color:rgba(255,255,255,.35);margin-bottom:16px;}
-  .footer-links{list-style:none;display:flex;flex-direction:column;gap:10px;}
-  .footer-links a{font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s;}
-  .footer-links a:hover{color:white;}
-  .footer-info{font-size:13px;color:rgba(255,255,255,.55);line-height:2.2;}
-  .footer-info a{color:rgba(255,255,255,.55);text-decoration:none;}
-  .footer-bottom{background:var(--graphite);padding:16px 64px;border-top:1px solid rgba(255,255,255,.05);font-size:12px;color:rgba(255,255,255,.3);text-align:center;}
+  /* ══ FOOTER ══ */
+  footer {
+    background: var(--navy);
+    color: white;
+    padding: 64px 48px;
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1fr 1fr;
+    gap: 48px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-we-label { font-size: 10px; letter-spacing: 3px; color: rgba(255,255,255,0.3); margin-bottom: 20px; }
+  .footer-belief { font-family: 'Noto Serif TC', serif; font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.9); letter-spacing: 2px; line-height: 1.5; margin-bottom: 12px; }
+  .footer-tagline { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 2; letter-spacing: 0.5px; }
+  .footer-heading { font-size: 10px; letter-spacing: 3px; color: rgba(255,255,255,0.3); margin-bottom: 20px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; padding-left: 0; }
+  .footer-links a { font-size: 13px; color: rgba(255,255,255,0.65); text-decoration: none; letter-spacing: 0.5px; transition: color 0.2s; font-weight: 300; }
+  .footer-links a:hover { color: white; }
+  .footer-menu-group { display: flex; flex-direction: column; gap: 20px; }
+  .footer-menu-section-title { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.9); letter-spacing: 0.5px; margin-bottom: 8px; }
+  .footer-menu-sub { list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 10px; }
+  .footer-menu-sub a { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.5); text-decoration: none; letter-spacing: 0.5px; transition: color 0.2s; }
+  .footer-menu-sub a:hover { color: white; }
+  .footer-info { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 2.2; }
+  .footer-info a { color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+  .footer-info a:hover { color: white; }
+  .footer-bottom { background: var(--navy); padding: 16px 48px; border-top: 1px solid rgba(255,255,255,0.06); font-size: 11px; color: rgba(255,255,255,0.25); text-align: center; letter-spacing: 1px; }
+  @media(max-width:1024px){ footer{grid-template-columns:1fr 1fr;padding:48px 32px;gap:40px;} .footer-bottom{padding:16px 32px;} }
+  @media(max-width:640px){ footer{grid-template-columns:1fr;padding:48px 20px;gap:36px;} .footer-bottom{padding:16px 20px;} }
 
   /* ── RWD ── */
   @media(max-width:1024px){
@@ -607,35 +625,39 @@
 <nav>
   <div class="nav-left">
     <ul class="nav-links">
-      <li><a href="index.html">關於我們</a></li>
+      <li><a href="about.html">關於我們</a></li>
       <li class="nav-dropdown">
-        <a href="#">專業服務</a>
+        <a href="#">認識你的視覺需求</a>
         <div class="dropdown-menu">
           <div class="dropdown-group">
-            <div class="dropdown-label">成人配鏡</div>
-            <a href="#">顧問式驗光</a>
-            <a href="#">老花多焦點</a>
-            <a href="high-myopia.html">高度近視專區</a>
+            <div class="dropdown-label">Kids</div>
+            <a href="children-myopia.html">孩子的視力發展</a>
           </div>
           <div class="dropdown-group">
-            <div class="dropdown-label">兒童配鏡</div>
-            <a href="children-myopia.html">兒童近視管理</a>
-            <a href="children-brands.html">兒童視力成長</a>
+            <div class="dropdown-label">Adult</div>
+            <a href="digital.html">數位生活與近距離用眼</a>
+            <a href="driving.html">駕駛與夜間視覺</a>
+            <a href="outdoor.html">戶外活動與光線防護</a>
           </div>
         </div>
       </li>
       <li class="nav-dropdown">
-        <a href="#">找到適合你的眼鏡</a>
+        <a href="#">找到適合你的鏡框</a>
         <div class="dropdown-menu">
           <div class="dropdown-group">
-            <a href="children-brands.html">兒童視力成長</a>
-            <a href="high-myopia.html">高度近視專區</a>
-            <a href="#">戶外防護 / 運動生活</a>
-            <a href="#">日常質感專區</a>
+            <div class="dropdown-label">Kids</div>
+            <a href="children-brands.html">正在成長中的孩子</a>
+          </div>
+          <div class="dropdown-group">
+            <div class="dropdown-label">Adult</div>
+            <a href="high-myopia.html">為高度近視設計</a>
+            <a href="comfort.html">重視舒適配戴</a>
+            <a href="sunglasses.html">經常處於戶外環境</a>
+            <a href="frame.html">喜愛質感穿搭</a>
           </div>
         </div>
       </li>
-      <li><a href="#">專屬配鏡流程</a></li>
+      <li><a href="process.html">專屬配鏡流程</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="開啟選單">
       <span></span><span></span><span></span>
@@ -649,13 +671,17 @@
         <circle cx="5" cy="28" r="3" fill="var(--navy)"/>
         <circle cx="33" cy="28" r="3" fill="var(--navy)"/>
       </svg>
-      <span class="logo-text">良美眼鏡</span>
+      <span class="logo-text">良美眼鏡｜<span style="color:var(--salmon);">良美驗光所</span></span>
     </a>
   </div>
   <div class="nav-right">
     <div class="nav-icons">
-      <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      <svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <a href="#" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="var(--navy)" stroke="none" width="20" height="20"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="#" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="1.8" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="var(--navy)" stroke="none"/></svg>
+      </a>
     </div>
     <a class="nav-cta" href="#">立即預約</a>
   </div>
@@ -664,31 +690,33 @@
 <!-- 手機全螢幕選單 -->
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-menu-item">
-    <a class="mobile-menu-link" href="index.html">關於我們</a>
+    <a class="mobile-menu-link" href="about.html">關於我們</a>
   </div>
-  <div class="mobile-menu-item" id="mob-service">
-    <button class="mobile-menu-link">專業服務 <span class="arrow">▾</span></button>
+  <div class="mobile-menu-item" id="mob-learn">
+    <button class="mobile-menu-link">認識你的視覺需求 <span class="arrow">▾</span></button>
     <div class="mobile-submenu">
-      <div class="mobile-submenu-label">成人配鏡</div>
-      <a href="#">顧問式驗光</a>
-      <a href="#">老花多焦點</a>
-      <a href="high-myopia.html">高度近視專區</a>
-      <div class="mobile-submenu-label">兒童配鏡</div>
-      <a href="children-myopia.html">兒童近視管理</a>
-      <a href="children-brands.html">兒童視力成長</a>
+      <div class="mobile-submenu-label">Kids</div>
+      <a href="children-myopia.html">孩子的視力發展</a>
+      <div class="mobile-submenu-label">Adult</div>
+      <a href="digital.html">數位生活與近距離用眼</a>
+      <a href="driving.html">駕駛與夜間視覺</a>
+      <a href="outdoor.html">戶外活動與光線防護</a>
     </div>
   </div>
   <div class="mobile-menu-item" id="mob-find">
-    <button class="mobile-menu-link">找到適合你的眼鏡 <span class="arrow">▾</span></button>
+    <button class="mobile-menu-link">找到適合你的鏡框 <span class="arrow">▾</span></button>
     <div class="mobile-submenu">
-      <a href="children-brands.html">兒童視力成長</a>
-      <a href="high-myopia.html">高度近視專區</a>
-      <a href="#">戶外防護 / 運動生活</a>
-      <a href="#">日常質感專區</a>
+      <div class="mobile-submenu-label">Kids</div>
+      <a href="children-brands.html">正在成長中的孩子</a>
+      <div class="mobile-submenu-label">Adult</div>
+      <a href="high-myopia.html">為高度近視設計</a>
+      <a href="comfort.html">重視舒適配戴</a>
+      <a href="sunglasses.html">經常處於戶外環境</a>
+      <a href="frame.html">喜愛質感穿搭</a>
     </div>
   </div>
   <div class="mobile-menu-item">
-    <a class="mobile-menu-link" href="#">專屬配鏡流程</a>
+    <a class="mobile-menu-link" href="process.html">專屬配鏡流程</a>
   </div>
   <a class="mobile-cta" href="#">立即預約</a>
 </div>
@@ -696,8 +724,8 @@
 <!-- BREADCRUMB -->
 <div class="breadcrumb">
   <a href="index.html">首頁</a> &nbsp;›&nbsp;
-  <a href="#">找到適合你的眼鏡</a> &nbsp;›&nbsp;
-  高度近視選鏡指南
+  <a href="#">找到適合你的鏡框</a> &nbsp;›&nbsp;
+  為高度近視設計
 </div>
 
 <!-- HERO -->
@@ -713,37 +741,37 @@
   <!-- 全寬背景圖層 -->
   <div class="acc-bg" id="accBg">
     <div class="acc-img-slot visible" data-slot="default">
-      <!-- 預設底圖：換圖時加入 <img src="images/high-myopia-default.jpg" alt="高度近視選鏡"> -->
+      <img src="images/high-myopia-default.jpg" alt="高度近視選鏡">
     </div>
     <!-- 鏡片厚度 -->
     <div class="acc-img-slot" data-slot="thick-lash">
-      <!-- 換圖：<img src="images/brand-lash.jpg" alt="LASH"> -->
+      <img src="images/brand-lash.jpg" alt="LASH">
     </div>
     <div class="acc-img-slot" data-slot="thick-999">
-      <!-- 換圖：<img src="images/brand-999.jpg" alt="999.9"> -->
+      <img src="images/brand-999.jpg" alt="999.9">
     </div>
     <!-- 重量敏感 -->
     <div class="acc-img-slot" data-slot="weight-kozo">
-      <!-- 換圖：<img src="images/brand-kozo.jpg" alt="KOZO"> -->
+      <img src="images/brand-kozo.jpg" alt="KOZO">
     </div>
     <div class="acc-img-slot" data-slot="weight-spec">
-      <!-- 換圖：<img src="images/brand-spec.jpg" alt="spec espace"> -->
+      <img src="images/brand-spec.jpg" alt="spec espace">
     </div>
     <div class="acc-img-slot" data-slot="weight-eyescloud">
-      <!-- 換圖：<img src="images/brand-eyescloud.jpg" alt="EYEs CLOUD"> -->
+      <img src="images/brand-eyescloud.jpg" alt="EYEs CLOUD">
     </div>
     <div class="acc-img-slot" data-slot="weight-sivimax">
-      <!-- 換圖：<img src="images/brand-sivimax.jpg" alt="sivi.max"> -->
+      <img src="images/brand-sivimax.jpg" alt="sivi.max">
     </div>
     <!-- 在意美觀 -->
     <div class="acc-img-slot" data-slot="style-taylor">
-      <!-- 換圖：<img src="images/brand-taylor.jpg" alt="taylor with respect"> -->
+      <img src="images/brand-taylor.jpg" alt="taylor with respect">
     </div>
     <div class="acc-img-slot" data-slot="style-lash">
-      <!-- 換圖：<img src="images/brand-lash.jpg" alt="LASH"> -->
+      <img src="images/brand-lash.jpg" alt="LASH">
     </div>
     <div class="acc-img-slot" data-slot="style-999">
-      <!-- 換圖：<img src="images/brand-999.jpg" alt="999.9"> -->
+      <img src="images/brand-999.jpg" alt="999.9">
     </div>
   </div>
 
@@ -917,40 +945,59 @@
 
 <!-- FOOTER -->
 <footer>
+<footer>
   <div>
-    <a class="logo" href="index.html" style="margin-bottom:16px;display:inline-flex;">
-      <svg width="28" height="28" viewBox="0 0 38 38" fill="none">
-        <path d="M6 28 Q6 10 19 8 Q32 10 32 28" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-        <path d="M10 28 Q10 16 19 14 Q28 16 28 28" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-        <circle cx="5" cy="28" r="3" fill="white"/><circle cx="33" cy="28" r="3" fill="white"/>
-      </svg>
-      <span class="logo-text">良美眼鏡</span>
-    </a>
-    <p class="footer-tagline">台南永康・兒童近視管理・顧問式驗光<br>從了解您的用眼習慣，到精準驗配一隻好眼鏡。</p>
+    <p class="footer-we-label">WE</p>
+    <p class="footer-belief">先理解你，再提供方案。</p>
+    <p class="footer-tagline">
+      每個人的生活方式都不同，<br>
+      值得被仔細理解。<br>
+      因為好的眼鏡，從來不只是度數而已。
+    </p>
   </div>
   <div>
-    <p class="footer-heading">SERVICES</p>
-    <ul class="footer-links">
-      <li><a href="children-myopia.html">兒童近視管理</a></li>
-      <li><a href="children-brands.html">兒童視力成長</a></li>
-      <li><a href="#">顧問式驗光</a></li>
-      <li><a href="#">老花多焦配鏡</a></li>
-      <li><a href="high-myopia.html">高度近視眼鏡</a></li>
-    </ul>
+    <p class="footer-heading">MENU</p>
+    <div class="footer-menu-group">
+      <div>
+        <p class="footer-menu-section-title">認識你的視覺需求</p>
+        <ul class="footer-menu-sub">
+          <li><a href="children-myopia.html">孩子的視力發展</a></li>
+          <li><a href="digital.html">數位生活與近距離用眼</a></li>
+          <li><a href="driving.html">駕駛與夜間視覺</a></li>
+          <li><a href="outdoor.html">戶外活動與光線防護</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
   <div>
-    <p class="footer-heading">CONTACT</p>
+    <p class="footer-heading">&nbsp;</p>
+    <div class="footer-menu-group">
+      <div>
+        <p class="footer-menu-section-title">找到適合你的鏡框</p>
+        <ul class="footer-menu-sub">
+          <li><a href="children-brands.html">正在成長中的孩子</a></li>
+          <li><a href="high-myopia.html">為高度近視設計</a></li>
+          <li><a href="comfort.html">重視舒適配戴</a></li>
+          <li><a href="sunglasses.html">經常處於戶外環境</a></li>
+          <li><a href="frame.html">喜愛質感穿搭</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div>
+    <p class="footer-heading">COME SAY HELLO</p>
     <div class="footer-info">
-      台南市永康區永大路二段189號<br><br>
+      台南市永康區永大路二段189號<br>
+      <a href="https://share.google/OFnrIagYW2B9vKdJe" target="_blank" rel="noopener">Google Maps</a><br>
+      <a href="tel:062727867">06-2727867</a><br><br>
       週一〜週六　10:00 – 21:00<br>
-      週日　12:00 – 19:00<br><br>
-      <a href="https://share.google/OFnrIagYW2B9vKdJe" target="_blank" rel="noopener">📍 Google Maps</a><br>
-      <a href="tel:062727867">📞 06-2727867</a>
+      週日　12:00 – 19:00<br>
+      公休日　每月最後一個週日
     </div>
   </div>
 </footer>
 <div class="footer-bottom">
-  © 創立於1993年 · 台南永康良美眼鏡 Liangmei Eyewear
+  版權所有 © 2026 良美眼鏡 Liang Mei Optical Store
 </div>
 
 <script>
@@ -1115,7 +1162,7 @@ hamburger.addEventListener('click', () => {
   mobileMenu.classList.toggle('open');
   document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
 });
-['mob-service', 'mob-find'].forEach(id => {
+['mob-learn', 'mob-find'].forEach(id => {
   const item = document.getElementById(id);
   if (!item) return;
   item.querySelector('button').addEventListener('click', () => item.classList.toggle('open'));
